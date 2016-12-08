@@ -1,0 +1,52 @@
+[
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/Inputh.cpp.o -c /home/rbresaw/Documents/GEtidy/Inputh.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/Inputh.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/Entity.cpp.o -c /home/rbresaw/Documents/GEtidy/Entity.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/Entity.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/vmath.cpp.o -c /home/rbresaw/Documents/GEtidy/vmath.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/vmath.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/TexL.cpp.o -c /home/rbresaw/Documents/GEtidy/TexL.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/TexL.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/main.cpp.o -c /home/rbresaw/Documents/GEtidy/main.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/main.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/GameObject.cpp.o -c /home/rbresaw/Documents/GEtidy/GameObject.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/GameObject.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/Game.cpp.o -c /home/rbresaw/Documents/GEtidy/Game.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/Game.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/msg.cpp.o -c /home/rbresaw/Documents/GEtidy/msg.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/msg.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/gofactory.cpp.o -c /home/rbresaw/Documents/GEtidy/gofactory.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/gofactory.cpp"
+},
+{
+  "directory": "/home/rbresaw/Documents/GEtidy",
+  "command": "/usr/bin/c++    -I/usr/include/SDL2  -w -g -std=c++11   -o CMakeFiles/GEtidy.dir/Player.cpp.o -c /home/rbresaw/Documents/GEtidy/Player.cpp",
+  "file": "/home/rbresaw/Documents/GEtidy/Player.cpp"
+}
+]

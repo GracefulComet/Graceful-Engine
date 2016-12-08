@@ -1,0 +1,15 @@
+This is a file that use to help me focus on short term goals with the project
+
+
+
+1. GameObject. Animation Frames Stored with an array of ( Collum , Row) structs
+
+2. Store in a file? for a series of animations to be used later?
+
+3. Frames: LocX, LocY, SizeX , SizeY , TextureID;
+maybe Put this functionality in TexL?
+
+SetCol
+SetRow
+
+Msg
