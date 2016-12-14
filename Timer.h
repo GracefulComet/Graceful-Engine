@@ -20,7 +20,7 @@ class TimerF
 	m_deltaTime =0.0f;	
        	}	
 	bool cooldown(float duration);
-	
+	void reset();	
 
 
 	private:

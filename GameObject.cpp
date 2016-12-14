@@ -34,17 +34,18 @@ void GameObject::draw(SDL_Renderer* pRenderer) {
 }
 
 void GameObject::animate(float DurPerFrame, int NumOfFrames, SDL_Renderer* pRenderer ){
-	m_prevTime = m_currTime;
-	m_currTime = SDL_GetTicks();
-	m_deltaTime += (m_currTime - m_prevTime);
+//	m_prevTime = m_currTime;
+//	m_currTime = SDL_GetTicks();
+//	m_deltaTime += (m_currTime - m_prevTime);
 
-	if (m_deltaTime < 0){
-	m_deltaTime = 0;
-	}
+//	if (m_deltaTime < 0){
+//	m_deltaTime = 0;
+//	}
 	
-	if(m_deltaTime >= DurPerFrame  ){
-	m_deltaTime = 0.0f;
+	if(m_timer.cooldown(DurPerFrame) == true ){
+	m_timer.reset();	
 	m_animOffset++;
+
 		if( m_animOffset >= NumOfFrames) 
 		{
 			m_animOffset = 0;
@@ -53,16 +54,16 @@ void GameObject::animate(float DurPerFrame, int NumOfFrames, SDL_Renderer* pRend
 	}
 }
 void GameObject::animatecycle(float DurPerFrame, int NumOfFrames, SDL_Renderer* pRenderer ){
-	m_prevTime = m_currTime;
-	m_currTime = SDL_GetTicks();
-	m_deltaTime += (m_currTime - m_prevTime);
+//	m_prevTime = m_currTime;
+//	m_currTime = SDL_GetTicks();
+//	m_deltaTime += (m_currTime - m_prevTime);
 
-	if (m_deltaTime < 0){
-	m_deltaTime = 0;
-	}
+//	if (m_deltaTime < 0){
+//	m_deltaTime = 0;
+//	}
 	
-	if(m_deltaTime >= DurPerFrame  ){
-	m_deltaTime = 0.0f;
+	if(m_timer.cooldown(DurPerFrame) == true ){
+	m_timer.reset();	
 
 
 		if(reverse == false)

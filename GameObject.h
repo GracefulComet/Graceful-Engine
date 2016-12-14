@@ -13,7 +13,7 @@
 #include "TexL.h"
 #include"vmath.h"
 #include "TileMap.h"
-
+#include "Timer.h"
 
 
 class GameObject
@@ -40,12 +40,12 @@ protected:
 	int m_animOffset;
 	int m_width;
 	int m_height;
-	int m_currentFrame;
-	float m_currTime;
-	float m_prevTime;
-	float m_deltaTime;
+//	int m_currentFrame;
+//	float m_currTime;
+//	float m_prevTime;
+//	float m_deltaTime;
 	TileMap m_tiles;
-
+	TimerF m_timer;	
 private:
 
 };
