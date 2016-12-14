@@ -1,12 +1,4 @@
-//
-//Creator:: Randall/ Randy Bresaw(handle GracefulComet)
-//
-//Please Add your name befor you commit   :)
-//Contributers::
-//
-//
-//
-//
+
 #include "TexL.h"
 
 TexL::~TexL() {}
