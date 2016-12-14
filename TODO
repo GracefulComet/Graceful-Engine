@@ -1,0 +1,16 @@
+ File to be used to keep a running check of things I plan to add
+
+Messaging system-- currently just has some place holders. needs to be totally reworked and worked from
+the ground up
+
+Task ques/ Action lists: way of storing a list of actions 
+
+Sprites: currently set up as game objects, rename and add more functionality for updating frame data
+from tilesheets
+
+Collections- ways of grouping and managing large sections of objects
+
+GUI- create ways of adding window box's, buttons, tool tips, mouse overlay
+
+XML file Reading
+
