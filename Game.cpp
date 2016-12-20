@@ -33,8 +33,8 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
-	test.animatecycle( 100.0f , 5 ,MainRender);
-	fact.updateAllGO(ev, deltatime, MainRender);
+	test.animatecycle( 100.0f , 5 );
+	fact.updateAllGO(ev, deltatime );
 }
 
 void Game::drawFrame() {

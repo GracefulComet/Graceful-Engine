@@ -8,7 +8,7 @@
 //
 //
 #pragma once
-#include "GameObject.h"
+#include "Sprite.h"
 
 class GOfactory {
        public:
@@ -16,8 +16,8 @@ class GOfactory {
 
 	void loadlist(std::string id);
 
-	void updateGO(int key, SDL_Event Event, float deltaT,SDL_Renderer* pRenderer);
-	void updateAllGO(SDL_Event Event, float deltaT,SDL_Renderer* pRenderer );
+	void updateGO(int key, SDL_Event Event, float deltaT);
+	void updateAllGO(SDL_Event Event, float deltaT);
 
 	void drawGO(int key, SDL_Renderer* pRenderer);
 	void drawAllGO(SDL_Renderer* pRender);
@@ -26,7 +26,7 @@ class GOfactory {
 	void addCollectable(std::string Textureid, float initX, float initY);
 
        private:
-	std::map<int, GameObject> GOList;
+	std::map<int, Sprite> GOList;
 
 
 

@@ -7,14 +7,14 @@
 //
 //
 //
-#include "GameObject.h"
+#include "Sprite.h"
 #include <string>
 
 
-GameObject::GameObject() {}
-GameObject::~GameObject() {}
+Sprite::Sprite() {}
+Sprite::~Sprite() {}
 
-void GameObject::load(float PosX, float PosY, int width, int height, int Row, int Collumn, std::string textureID) {
+void Sprite::load(float PosX, float PosY, int width, int height, int Row, int Collumn, std::string textureID) {
 	m_position = Vector(PosX, PosY, 0 );
 	m_width = width;
 	m_height = height;
@@ -24,16 +24,16 @@ void GameObject::load(float PosX, float PosY, int width, int height, int Row, in
 	m_currentCol = Collumn;
 }
 
-void GameObject::update(SDL_Event Ev,float DeltaTime,SDL_Renderer* pRenderer){}
+void Sprite::update(SDL_Event Ev,float DeltaTime){}
 
-void GameObject::draw(SDL_Renderer* pRenderer) {
+void Sprite::draw(SDL_Renderer* pRenderer) {
 	TheTextureManager::Instance()->drawFrame(
 	    m_textureID, m_position.x, m_position.y, m_width, m_height,
 	    m_currentRow, (m_currentCol + m_animOffset), pRenderer, SDL_FLIP_NONE);
 
 }
 
-void GameObject::animate(float DurPerFrame, int NumOfFrames, SDL_Renderer* pRenderer ){
+void Sprite::animate(float DurPerFrame, int NumOfFrames  ){
 	
 	if(m_timer.cooldown(DurPerFrame) == true ){
 	m_timer.reset();	
@@ -46,7 +46,8 @@ void GameObject::animate(float DurPerFrame, int NumOfFrames, SDL_Renderer* pRend
 	
 	}
 }
-void GameObject::animatecycle(float DurPerFrame, int NumOfFrames, SDL_Renderer* pRenderer ){
+void Sprite::animatecycle(float DurPerFrame, int NumOfFrames ){
+
 
 	
 	if(m_timer.cooldown(DurPerFrame) == true ){
