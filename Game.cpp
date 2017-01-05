@@ -33,14 +33,14 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
-	test.animatecycle( 100.0f , 5 );
-	fact.updateAllGO(ev, deltatime );
+	
+
 }
 
 void Game::drawFrame() {
 	SDL_RenderClear(MainRender);
 	fact.drawAllGO(MainRender);
-	test.draw(MainRender);
+	
 	SDL_RenderPresent(MainRender);
 }
 
@@ -85,9 +85,9 @@ Game::Game() {
 			std::cout << "loaded ringsheet.png" << std::endl;}
 		else {	std::cout << "loaded SpinningCoin.png" << std::endl;}
 
-	fact.addGO("players0",  50, 50,5,5 );
 
-	test.load (200,200 ,248 ,248, 1 , 1 ,"Ring");
+
+	Test = Sprite ( );
 
 
 

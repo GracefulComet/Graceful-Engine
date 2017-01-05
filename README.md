@@ -10,6 +10,13 @@ This repository requires SDL2 , SDL Image and CMake. both are open source projec
 # How To Build
 
 # linux 
-run CMake ./
-it will generate a Makefile.
-rune make or  make -j6 (number is 1.5 times the number of available cores or threads on the machine for building program)
+run
+```CMake ./
+
+it will generate a Makefile or give you errors about why it couldnt create the make file
+run
+```make
+
+or
+  
+```make -j6 (number is 1.5 times the number of available cores or threads on the machine for building program)

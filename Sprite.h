@@ -20,15 +20,16 @@ class Sprite // small graphics object
 {
 public:
 
+	Sprite(int width, int height, int nCol, int nRow, std::string textureID);
 	Sprite();
 	~Sprite();
-    void load(float PosX, float PosY, int width, int height,  int Row, int Collumn,
+	void load(float PosX, float PosY, int width, int height,  int Row, int Collumn,
 	std::string textureID);
 	void draw(SDL_Renderer* pRenderer);
-    void update(SDL_Event Ev,float DeltaTime);
-	void animate(float DurPerFrame, int NumOfFrames ); 	
+	void update(SDL_Event Ev,float DeltaTime);
+	void animate(float DurPerFrame, int NumOfFrames, bool Cycle ); 	
 	
-	void animatecycle(float DurPerFrame, int NumOfFrames ); 	
+	void Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle );
 	
 
 protected:

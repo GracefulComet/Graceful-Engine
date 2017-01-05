@@ -51,7 +51,7 @@ private:
 	GOfactory fact;
 	GameState  m_GameState;
     int m_lastframe;
-	Sprite test;
+	Sprite Test;
 
     
 };
