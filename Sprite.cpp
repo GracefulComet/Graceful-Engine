@@ -14,7 +14,8 @@
 Sprite::Sprite(int width, int height, int nCol, int nRow, std::string textureID ) {
  m_tiles = TileMap(nCol,nRow ,height,width);
  m_textureID  = textureID;
-
+ m_tiles.setCurTile( 0 );
+ m_animOffset = 0;
 }
 Sprite::Sprite(){}
 Sprite::~Sprite() {}
@@ -35,7 +36,7 @@ void Sprite::update(SDL_Event Ev,float DeltaTime){}
 void Sprite::draw(SDL_Renderer* pRenderer) {
 	TheTextureManager::Instance()->drawFrame(
 	    m_textureID, m_position.x, m_position.y, this->m_tiles.getW() ,this->m_tiles.getH(),
-	    m_currentRow, (m_currentCol + m_animOffset), pRenderer, SDL_FLIP_NONE);
+	    this->m_tiles.getCurrRow() , (this->m_tiles.getCurrCol() + m_animOffset), pRenderer, SDL_FLIP_NONE);
 
 }
 
@@ -104,4 +105,11 @@ void Sprite::Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle ){
 		}
 	}
 
+}
+
+
+void Sprite::SetPos( float x , float y ){
+m_position.x = x;
+m_position.y = y;
+m_position.z =0;
 }

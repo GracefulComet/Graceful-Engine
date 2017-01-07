@@ -28,9 +28,9 @@ public:
 	void draw(SDL_Renderer* pRenderer);
 	void update(SDL_Event Ev,float DeltaTime);
 	void animate(float DurPerFrame, int NumOfFrames, bool Cycle ); 	
-	
+	void setCurTile(int CurT);	
 	void Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle );
-	
+	void SetPos( float x , float y );	
 
 protected:
 	bool reverse;

@@ -33,14 +33,14 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
-	
+	Test.animate(90.0f,6,true);
 
 }
 
 void Game::drawFrame() {
 	SDL_RenderClear(MainRender);
 	fact.drawAllGO(MainRender);
-	
+	Test.draw(MainRender);	
 	SDL_RenderPresent(MainRender);
 }
 
@@ -87,8 +87,8 @@ Game::Game() {
 
 
 
-	Test = Sprite ( );
-
+	Test = Sprite( 248 ,  248, 6 , 0 ,  "Ring" );
+	Test.SetPos(50,50);
 
 
 

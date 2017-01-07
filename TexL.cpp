@@ -52,8 +52,19 @@ void TexL::drawFrame(std::string id, int x, int y, int width, int height,
 		     SDL_RendererFlip flip) {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
-	srcRect.x = width * currentCol;
-	srcRect.y = height * (currentRow - 1);
+
+
+
+
+
+
+
+	srcRect.y = currentRow * width;
+
+
+	srcRect.x = height * currentCol ;
+
+
 	srcRect.w = destRect.w = width;
 	srcRect.h = destRect.h = height;
 	destRect.x = x;
