@@ -56,13 +56,14 @@ void GOfactory::drawAllGO(SDL_Renderer * pRender)
 	}
 }
 
-void GOfactory::addGO(std::string Textureid, float initX, float initY , int Row, int Column )
+void GOfactory::addGO(std::string Textureid, int NumCol, int NumRow , int Width, int Height,float PosX,float PosY )
 {
 	P_Num_Keys++;
 	int key = P_Num_Keys;
 
 	Sprite temp;
-	temp.load(initX, initY, 32, 32 , Row ,Column, Textureid );
-	GOList[key] = temp;
+	temp = Sprite(Width,Height,NumCol,NumRow, Textureid);
+	temp.SetPos(PosX,PosY);
+	GOList[key] =  temp;
 	
 }

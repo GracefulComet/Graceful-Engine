@@ -9,7 +9,7 @@
 //
 #pragma once
 #include "Sprite.h"
-
+#include <vector>
 class GOfactory {
        public:
 	GOfactory();
@@ -21,13 +21,14 @@ class GOfactory {
 
 	void drawGO(int key, SDL_Renderer* pRenderer);
 	void drawAllGO(SDL_Renderer* pRender);
-	void addGO(std::string Textureid, float initX, float initY, int Row, int Collumn);
+	void addGO(std::string Textureid, int NumCol, int NumRow , int Width, int Height ,float PosX,float PosY );
 
 	void addCollectable(std::string Textureid, float initX, float initY);
+	
+	
 
        private:
 	std::map<int, Sprite> GOList;
-
 
 
 	int P_Num_Keys;

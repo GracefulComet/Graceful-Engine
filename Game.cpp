@@ -55,10 +55,10 @@ Game::Game() {
 				 SDL_WINDOWPOS_CENTERED, 800, 600,
 				 SDL_WINDOW_SHOWN);
 	MainRender = SDL_CreateRenderer(
-	    m_win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	backBuffer =
-	    SDL_CreateTexture(MainRender, SDL_PIXELFORMAT_ABGR8888,
-			      SDL_TEXTUREACCESS_TARGET, m_WHeight, m_WWidth);
+	    m_win, -1, SDL_RENDERER_ACCELERATED);
+//	backBuffer =
+//	    SDL_CreateTexture(MainRender, SDL_PIXELFORMAT_ABGR8888,
+//			      SDL_TEXTUREACCESS_TARGET, m_WHeight, m_WWidth);
 
 	m_lastframe = 0;
 

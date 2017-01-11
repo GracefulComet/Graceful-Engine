@@ -20,16 +20,16 @@ Sprite::Sprite(int width, int height, int nCol, int nRow, std::string textureID 
 Sprite::Sprite(){}
 Sprite::~Sprite() {}
 
-void Sprite::load(float PosX, float PosY, int width, int height, int Row, int Collumn, std::string textureID) {
-	m_position = Vector(PosX, PosY, 0 );
-	m_width = width;
-	m_height = height;
-	m_textureID = textureID;
-	m_currentRow = Row;
-	m_animOffset =0;
-	m_currentCol = Collumn;
-	reverse = false;
-}
+
+
+
+
+
+
+
+
+
+
 
 void Sprite::update(SDL_Event Ev,float DeltaTime){}
 
