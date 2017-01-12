@@ -24,7 +24,7 @@ class GOfactory {
 	void addGO(std::string Textureid, int NumCol, int NumRow , int Width, int Height ,float PosX,float PosY );
 
 	void addCollectable(std::string Textureid, float initX, float initY);
-	
+	void Anim(float duration,int key,int NumFrames ,SDL_Renderer* pRender); 	
 	
 
        private:

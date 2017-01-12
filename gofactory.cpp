@@ -67,3 +67,8 @@ void GOfactory::addGO(std::string Textureid, int NumCol, int NumRow , int Width,
 	GOList[key] =  temp;
 	
 }
+void GOfactory::Anim(float duration, int key,int NumFrames,SDL_Renderer* pRender){
+
+GOList[key].Nanimate(90.0f,NumFrames, pRender);
+
+}
