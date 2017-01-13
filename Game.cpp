@@ -33,8 +33,8 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
-//	Test.animate(90.0f,6,true);
-	fact.Anim(90.0f , 1,6,MainRender);
+
+	fact.Anim(90.0f , 26,6,MainRender);
 }
 
 void Game::drawFrame() {
@@ -74,8 +74,8 @@ Game::Game() {
 	} else {
 		std::cout << "Failed to load char1.png" << std::endl;
 	}
-	if (TheTextureManager::Instance()->load("Assets/SpinningCoin.png",
-						"Coin", MainRender) == true) {
+	if (TheTextureManager::Instance()->load("Assets/JnRTiles.png",
+						"tiles", MainRender) == true) {
 		std::cout << "loaded SpinningCoin.png" << std::endl;
 	} else {
 		std::cout << "Failed to load SpinningCoin.png" << std::endl;
@@ -87,8 +87,8 @@ Game::Game() {
 
 
 
-//	Test = Sprite( 248 ,  248, 6 , 0 ,  "Ring" );
-//	Test.SetPos(50,50);
+	fact.AddGrid(0 ,17, "tiles",32,32,4,4 );
+
 	
 	fact.addGO("Ring",0,6,248,248,50,50);
 

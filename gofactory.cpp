@@ -72,3 +72,17 @@ void GOfactory::Anim(float duration, int key,int NumFrames,SDL_Renderer* pRender
 GOList[key].Nanimate(90.0f,NumFrames, pRender);
 
 }
+void GOfactory::AddGrid(int NumCol,int NumRows, std::string textureID,int width,int height,int GridX,int GridY ){
+
+	for(int y =0; y <= GridY;y++){
+		for(int x =0; x <= GridX; x++){
+	
+		addGO(textureID,NumCol,NumRows,width,height,width * y,height* x);
+
+		}
+	}
+
+
+}
+
+

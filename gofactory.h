@@ -25,7 +25,9 @@ class GOfactory {
 
 	void addCollectable(std::string Textureid, float initX, float initY);
 	void Anim(float duration,int key,int NumFrames ,SDL_Renderer* pRender); 	
-	
+	void AddGrid(int NumCol,int NumRows, std::string textureID,int width,int height,int GridX,int GridY );
+
+		
 
        private:
 	std::map<int, Sprite> GOList;
