@@ -12,6 +12,7 @@
 #include "SDL2/SDL_image.h"
 #include <string>
 #include <map>
+#include <iostream>
 
 class TexL {
        public:
@@ -39,7 +40,7 @@ class TexL {
 	void drawFrame(std::string id, int x, int y, int width, int height,
 		       int currentRow, int currentFrame, SDL_Renderer* pRender,
 		       SDL_RendererFlip flip);
-
+	void LoadWErrorChecking(std::string filename, std::string id, SDL_Renderer* pRender);
        private:
 	static TexL* s_pInstance;
 	std::map<std::string, SDL_Texture*> m_textureMap;

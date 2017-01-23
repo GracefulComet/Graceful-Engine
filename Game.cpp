@@ -55,10 +55,8 @@ Game::Game() {
 				 SDL_WINDOWPOS_CENTERED, 800, 600,
 				 SDL_WINDOW_SHOWN);
 	MainRender = SDL_CreateRenderer(
-	    m_win, -1, SDL_RENDERER_ACCELERATED);
-//	backBuffer =
-//	    SDL_CreateTexture(MainRender, SDL_PIXELFORMAT_ABGR8888,
-//			      SDL_TEXTUREACCESS_TARGET, m_WHeight, m_WWidth);
+	    m_win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
+
 
 	m_lastframe = 0;
 
@@ -67,47 +65,34 @@ Game::Game() {
 
 
 	m_GameState = GameState::PLAY;
+	TheTextureManager::Instance()->LoadWErrorChecking("Assets/JnRTiles.png","tiles", MainRender );
+	TheTextureManager::Instance()->LoadWErrorChecking("Assets/ringsheetC.png", "Ring",MainRender);
+	Test.LoadFromFile("Background.sp",MainRender);
 
-	if (TheTextureManager::Instance()->load("Assets/char1.png", "players0",
-						MainRender) == true) {
-		std::cout << "loaded char1.png" << std::endl;
-	} else {
-		std::cout << "Failed to load char1.png" << std::endl;
-	}
-	if (TheTextureManager::Instance()->load("Assets/JnRTiles.png",
-						"tiles", MainRender) == true) {
-		std::cout << "loaded SpinningCoin.png" << std::endl;
-	} else {
-		std::cout << "Failed to load SpinningCoin.png" << std::endl;
-	}
-		if (TheTextureManager::Instance()->load("Assets/ringsheetC.png", "Ring",
-						MainRender) == true){
-			std::cout << "loaded ringsheet.png" << std::endl;}
-		else {	std::cout << "loaded SpinningCoin.png" << std::endl;}
-
-
-
-	fact.AddGrid(0 ,17, "tiles",32,32,4,4 );
-
-	
+	fact.AddGrid(0 ,17, "tiles",32,32,4,4 );	
 	fact.addGO("Ring",0,6,248,248,50,50);
+	
+	
+	Test.SetPos(400,400 );
+	
 
 
 
 }
 
 void Game::RL() {
-	Ptime = Ctime;
-	Ctime = SDL_GetTicks();
-	deltatime = Ctime - Ptime;
-	if (deltatime > 0.15) {
-		deltatime = 0.15;
-	}
+//	Ptime = Ctime;
+//	Ctime = SDL_GetTicks();
+//	deltatime = Ctime - Ptime;
+//	if (deltatime > 0.15) {
+//		deltatime = 0.15;
+//	}
 	composeFrame();
 	drawFrame();
 }
 
 Game::~Game() {
+
 	TheInputHandler::Instance()->clean();
 	SDL_DestroyRenderer(MainRender);
 	SDL_DestroyWindow(m_win);

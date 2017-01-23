@@ -17,8 +17,10 @@ class  TileMap{
 	int getW();
 	int getCurrCol();
 	int getCurrRow();	
+	int getNCol();
+	int getNRow();
 
-	private:
+	protected:
 
 	int m_NumCol; // number of collums
 	int m_NumRow; // number Of Rows

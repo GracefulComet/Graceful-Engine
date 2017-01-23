@@ -52,23 +52,20 @@ void TexL::drawFrame(std::string id, int x, int y, int width, int height,
 		     SDL_RendererFlip flip) {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
-
-
-
-
-
-
-
 	srcRect.y = currentRow * width;
-
-
 	srcRect.x = height * currentCol ;
-
-
 	srcRect.w = destRect.w = width;
 	srcRect.h = destRect.h = height;
 	destRect.x = x;
 	destRect.y = y;
 	SDL_RenderCopyEx(pRender, m_textureMap[id], &srcRect, &destRect, 0, 0,
 			 flip);
+}
+void TexL::LoadWErrorChecking(std::string filename, std::string id, SDL_Renderer* pRender){
+this->load( filename, id,pRender);
+	if (this->load( filename, id,pRender) == true) {
+		std::cout << "loaded "<< filename << std::endl;
+	} else {
+		std::cout << "Failed to load "<< filename << std::endl;
+	}
 }

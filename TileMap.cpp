@@ -8,6 +8,8 @@ TileMap::TileMap(int ncol,int nrow,int Height,int width){
 
 	m_Height = Height;
 	m_Width = width;
+	m_NumRow = nrow;
+	m_NumCol = ncol;
 	m_Maping[ id ] = temp; 
 	for(int y = 0; y <= nrow; y++){
 		for(int x = 0; x <= ncol; x++){
@@ -46,3 +48,14 @@ Frame temp;
 temp = m_Maping[m_curTile];
 return temp.y;
 }
+int TileMap::getNCol(){
+int temp = 0;
+temp = m_NumCol;
+return temp;
+}
+int TileMap::getNRow(){
+int temp = 0;
+temp = m_NumRow;
+return temp;
+}
+
