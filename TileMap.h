@@ -19,7 +19,7 @@ class  TileMap{
 	int getCurrRow();	
 	int getNCol();
 	int getNRow();
-
+	int getCurrTile();
 	protected:
 
 	int m_NumCol; // number of collums

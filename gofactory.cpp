@@ -69,7 +69,7 @@ void GOfactory::addGO(std::string Textureid, int NumCol, int NumRow , int Width,
 }
 void GOfactory::Anim(float duration, int key,int NumFrames,SDL_Renderer* pRender){
 
-GOList[key].Nanimate(90.0f,NumFrames, pRender);
+GOList[key].Nanimate(duration ,NumFrames, pRender);
 
 }
 void GOfactory::AddGrid(int NumCol,int NumRows, std::string textureID,int width,int height,int GridX,int GridY ){

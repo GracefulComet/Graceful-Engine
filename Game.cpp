@@ -16,17 +16,12 @@ void Game::GameLoop() {
 
 		if (SDL_PollEvent(&ev) == 0) {
 			RL();
-		
 		}
 		while (SDL_PollEvent(&ev) != 0) {
-
 			RL();
-
 			if (ev.type == SDL_QUIT) {
 				isOpen = false;
 			}
-
-
 		}
 	}
 }
@@ -34,7 +29,7 @@ void Game::GameLoop() {
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
 
-	fact.Anim(90.0f , 26,6,MainRender);
+	fact.Anim(90.0f , 501 ,6,MainRender);
 }
 
 void Game::drawFrame() {
@@ -67,13 +62,13 @@ Game::Game() {
 	m_GameState = GameState::PLAY;
 	TheTextureManager::Instance()->LoadWErrorChecking("Assets/JnRTiles.png","tiles", MainRender );
 	TheTextureManager::Instance()->LoadWErrorChecking("Assets/ringsheetC.png", "Ring",MainRender);
-	Test.LoadFromFile("Background.sp",MainRender);
 
-	fact.AddGrid(0 ,17, "tiles",32,32,4,4 );	
+
+	fact.AddGrid(0 ,17, "tiles",32,32,19,24 );	
 	fact.addGO("Ring",0,6,248,248,50,50);
 	
 	
-	Test.SetPos(400,400 );
+
 	
 
 

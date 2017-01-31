@@ -31,7 +31,9 @@ void Sprite::LoadFromFile(std::string FileName ,SDL_Renderer* Render ){
 	int tempH;
 	int tempNcol;
 	int tempNrow;
-	
+	int tempCTile;	
+	float tempX;
+	float tempY;
 
 	std::ifstream ifs(FileName);
 	if (ifs.is_open() ){
@@ -39,7 +41,7 @@ void Sprite::LoadFromFile(std::string FileName ,SDL_Renderer* Render ){
 		while(std::getline(ifs,line)){
 			counter++;
 		
-			if(counter >=7 ){
+			if(counter >=8 ){
 			counter =1;	
 			}
 			if(counter ==1){
@@ -65,6 +67,17 @@ void Sprite::LoadFromFile(std::string FileName ,SDL_Renderer* Render ){
 			
 			tempNrow = atoi(line.c_str());	
 			}
+			if(counter == 7){
+			tempCTile = atoi(line.c_str());
+			}
+			if(counter == 8){
+			tempX = atoi(line.c_str());
+			}
+			if(counter == 9){
+			tempY = atoi(line.c_str());
+			}
+
+
 	
 // wrap texture loading in an if statement that checks if the file is already open
 		}
@@ -72,10 +85,13 @@ void Sprite::LoadFromFile(std::string FileName ,SDL_Renderer* Render ){
 
 		m_textureID = tempTexID;
 	     	m_tiles = TileMap(tempNcol,tempNrow ,tempH,tempW);
-
-			 m_tiles.setCurTile( 0 );
+		m_position.x = tempX; 
+		m_position.y = tempY;
+			 m_tiles.setCurTile( tempCTile  );
 			 m_animOffset = 0;
-			 ifs.close();			  }
+			 ifs.close();	
+			
+	}
 
 		
 	else{std::cout << "file " << FileName << " not found "<< std::endl;  }
@@ -88,7 +104,8 @@ void Sprite::SaveToFile( std::string FileName ,std::string TextureFilename,std::
 		
 	std::ofstream ofs( FileName ,std::ios::trunc);
 	ofs<< TextureFilename  << std::endl << textureID << std::endl << m_tiles.getW() << std::endl
-	<<m_tiles.getH()<<std::endl << m_tiles.getNCol()<< std::endl << m_tiles.getNRow() <<std::endl;
+	<<m_tiles.getH()<<std::endl << m_tiles.getNCol()<< std::endl << m_tiles.getNRow() <<std::endl
+	<<m_tiles.getCurrTile() << std::endl << m_position.x << std::endl << m_position.y <<std::endl; 
 	ofs.close();
 
 }

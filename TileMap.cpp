@@ -32,6 +32,10 @@ void TileMap::setCurTile(int cFrame ){
 m_curTile = cFrame;
 }
 
+int TileMap::getCurrTile(){
+return m_curTile ;
+}
+
 int TileMap::getH(){
 return m_Height;
 }
@@ -58,4 +62,6 @@ int temp = 0;
 temp = m_NumRow;
 return temp;
 }
+
+
 
