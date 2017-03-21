@@ -1,8 +1,8 @@
 //
-//Creator:: Randall/ Randy Bresaw(handle GracefulComet)
+// Creator:: Randall/ Randy Bresaw(handle GracefulComet)
 //
-//Please Add your name befor you commit   :)
-//Contributers::
+// Please Add your name befor you commit   :)
+// Contributers::
 //
 //
 //
@@ -11,27 +11,29 @@
 #include "Sprite.h"
 #include <vector>
 class GOfactory {
-       public:
-	GOfactory();
+public:
+  GOfactory();
 
-	void loadlist(std::string id);
+ // void loadlist(std::string id);
 
-	void updateGO(int key, SDL_Event Event, float deltaT);
-	void updateAllGO(SDL_Event Event, float deltaT);
+ // void updateGO(int key, SDL_Event Event, float deltaT);
+ // void updateAllGO(SDL_Event Event, float deltaT);
 
-	void drawGO(int key, SDL_Renderer* pRenderer);
-	void drawAllGO(SDL_Renderer* pRender);
-	void addGO(std::string Textureid, int NumCol, int NumRow , int Width, int Height ,float PosX,float PosY );
+ // void drawGO(int key, SDL_Renderer *pRenderer);
+ // void drawAllGO(SDL_Renderer *pRender);
+ // void addGO(std::string Textureid, int NumCol, int NumRow, int Width,
+ //            int Height, float PosX, float PosY);
+  void addGFX( Sprite graphic  );
+  void updateGFX( SDL_Event Event, float deltaT );
+  void drawGFX(SDL_Renderer * pRender);
+ // void addCollectable(std::string Textureid, float initX, float initY);
+ // void Anim(float duration, int key, int NumFrames, SDL_Renderer *pRender);
+ // void AddGrid(int NumCol, int NumRows, std::string textureID, int width,
+ //              int height, int GridX, int GridY);
 
-	void addCollectable(std::string Textureid, float initX, float initY);
-	void Anim(float duration,int key,int NumFrames ,SDL_Renderer* pRender); 	
-	void AddGrid(int NumCol,int NumRows, std::string textureID,int width,int height,int GridX,int GridY );
+private:
+//  std::map<int, Sprite> GOList;
+  std::vector<Sprite> Gfx;
 
-		
-
-       private:
-	std::map<int, Sprite> GOList;
-
-
-	int P_Num_Keys;
+//  int P_Num_Keys;
 };

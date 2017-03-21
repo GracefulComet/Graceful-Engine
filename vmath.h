@@ -1,32 +1,30 @@
 //
-//Creator:: Randall/ Randy Bresaw(handle GracefulComet)
+// Creator:: Randall/ Randy Bresaw(handle GracefulComet)
 //
-//Please Add your name befor you commit   :)
-//Contributers::
+// Please Add your name befor you commit   :)
+// Contributers::
 //
 //
 //
 //
 #pragma once
-#include<cmath>
+#include <cmath>
 
-    class Vector {
-    public:
-    float x;
-    float y;
-    float z;
-    Vector(void);
-    Vector(float xi, float yi, float zi);
-    float Magnitude(void);
-    void Normalize(void);
-    void Reverse(void);
-    Vector& operator+=(Vector u);
-    Vector& operator-=(Vector u);
-    Vector& operator*=(float s);
-    Vector& operator/=(float s);
-    Vector& operator-(void);
+class Vector {
+public:
+  float x;
+  float y;
+  float z;
+  Vector(void);
+  Vector(float xi, float yi, float zi);
+  float Magnitude(void);
+  void Normalize(void);
+  void Reverse(void);
+  Vector &operator+=(Vector u);
+  Vector &operator-=(Vector u);
+  Vector &operator*=(float s);
+  Vector &operator/=(float s);
+  Vector &operator-(void);
 
-    float Approach(float goal, float current, float dt);
-
-    };
-
+  float Approach(float goal, float current, float dt);
+};

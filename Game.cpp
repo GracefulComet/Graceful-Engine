@@ -28,14 +28,15 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
-
-	fact.Anim(90.0f , 501 ,6,MainRender);
+	fact.updateGFX(ev, 60.0f  );	
+//	fact.Anim(90.0f , 501 ,6,MainRender);
 }
 
 void Game::drawFrame() {
 	SDL_RenderClear(MainRender);
-	fact.drawAllGO(MainRender);
-	Test.draw(MainRender);	
+	//fact.drawAllGO(MainRender);
+	fact.drawGFX(MainRender);
+//	Test.draw(MainRender);	
 	SDL_RenderPresent(MainRender);
 }
 
@@ -60,15 +61,13 @@ Game::Game() {
 
 
 	m_GameState = GameState::PLAY;
-	TheTextureManager::Instance()->LoadWErrorChecking("Assets/JnRTiles.png","tiles", MainRender );
-	TheTextureManager::Instance()->LoadWErrorChecking("Assets/ringsheetC.png", "Ring",MainRender);
+//	TheTextureManager::Instance()->LoadWErrorChecking("Assets/JnRTiles.png","tiles", MainRender );
+//	TheTextureManager::Instance()->LoadWErrorChecking("Assets/ringsheetC.png", "Ring",MainRender);
 
 
-	fact.AddGrid(0 ,17, "tiles",32,32,19,24 );	
-	fact.addGO("Ring",0,6,248,248,50,50);
-	
-	
-
+//	fact.AddGrid(0 ,17, "tiles",32,32,19,24 );	
+//	fact.addGO("Ring",0,6,248,248,50,50);
+	fact.addGFX( Sprite("Background.sp", MainRender, state::animated ));
 	
 
 
