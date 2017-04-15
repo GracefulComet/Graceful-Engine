@@ -16,10 +16,10 @@ GOfactory::GOfactory() {// P_Num_Keys = 0;
 
 void GOfactory::addGFX(Sprite graphic){ Gfx.push_back(graphic);  }
 
-void GOfactory::updateGFX(SDL_Event Event, float deltaT){ 
+void GOfactory::updateGFX(float deltaT){ 
 	
-	for (int i =0; i < Gfx.size();i++ ){
-	Gfx[i].update(Event, deltaT);
+	for (unsigned int i =0; i < Gfx.size();i++ ){
+	Gfx[i].update(deltaT , 7 );
 	}
 
 
@@ -28,10 +28,11 @@ void GOfactory::updateGFX(SDL_Event Event, float deltaT){
 void GOfactory::drawGFX(SDL_Renderer * pRender){
 
 	
-	for (int i =0; i < Gfx.size(); i++ )
+	for ( unsigned int  i =0; i < Gfx.size(); i++ )
 	{Gfx[i].draw(pRender);}
 
 }
+
 
 //void GOfactory::loadlist(std::string id) {}
 

@@ -14,7 +14,7 @@
 #include "vmath.h"
 #include <SDL2/SDL.h>
 #include <string>
-
+#include "Messages.h"
 
 	enum class state {idle,animated, cycle };
 class Sprite // small graphics object
@@ -33,16 +33,19 @@ public:
   void SaveToFile(std::string FileName, std::string TextureFilename,
                   std::string textureID);
   void draw(SDL_Renderer *pRenderer);
-  void update(SDL_Event Ev, float DeltaTime);
+  void update(float DeltaTime , int NumOfFrames);
   void animate(float DurPerFrame, int NumOfFrames, bool Cycle);
   void setCurTile(int CurT);
   void Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle);
   void SetPos(float x, float y);
   TileMap m_tiles;
+  Vector* getVec();
+  void HandleMSG( ); 
 
 protected:
   bool reverse;
   Vector m_position;
+  MSGreciever m_messenger;
   std::string m_textureID;
   int m_animOffset;
   TimerF m_timer;

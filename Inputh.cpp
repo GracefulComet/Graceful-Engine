@@ -54,7 +54,7 @@ void InputHandler::InitialiseJoysticks() {
 
 void InputHandler::clean() {
   if (m_bJoysticksInitialised) {
-    for (unsigned int i = 0; i < SDL_NumJoysticks(); i++) {
+    for (int i = 0; i < SDL_NumJoysticks(); i++) {
       SDL_JoystickClose(m_joysticks[i]);
     }
   }
@@ -62,6 +62,7 @@ void InputHandler::clean() {
 
 void InputHandler::GrabInput() {}
 
+// REmove this later please
 void InputHandler::Listen(SDL_Event event) {
   while (SDL_PollEvent(&event) >= 0) {
     if (event.type == SDL_JOYAXISMOTION) {
@@ -72,7 +73,7 @@ void InputHandler::Listen(SDL_Event event) {
     }
 
     if (event.type == SDL_JOYBUTTONDOWN) {
-      bool is_pressed = 0;
+  
       if (event.jbutton.which >= 0) {
         std::cout << "Button " << (int)event.jbutton.button << " was pressed"
                   << std::endl;

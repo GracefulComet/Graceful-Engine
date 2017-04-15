@@ -30,7 +30,7 @@ LoadFromFile(FileName,Render);
 State = stat;
 }
 Sprite::Sprite() {}
-Sprite::~Sprite() {}
+Sprite::~Sprite() { }
 
 void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
   std::string line;
@@ -95,6 +95,14 @@ void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
     m_tiles = TileMap(tempNcol, tempNrow, tempH, tempW);
     m_position.x = tempX;
     m_position.y = tempY;
+    m_position.z = 0;
+    if ( m_position.x == NULL ){ 
+    m_position.x = 0;
+    }
+    if ( m_position.y == NULL ){ 
+    m_position.y = 0;
+    }
+
     m_tiles.setCurTile(tempCTile);
     m_animOffset = 0;
     ifs.close();
@@ -125,18 +133,18 @@ void Sprite::SaveToFile(std::string FileName, std::string TextureFilename,
   ofs.close();
 }
 
-void Sprite::update(SDL_Event Ev, float DeltaTime) {
+void Sprite::update( float DeltaTime , int NumOfFrames) {
 
 	switch (State ){ 
 	
 		case  state::idle : 
 			break;
 	case  state::animated :
-	animate( 60.0f , 7, false  );		
+	animate( DeltaTime , NumOfFrames, false  );		
 
 			break;
 	case  state::cycle : 
-	animate( 60.0f , 7, true  );		
+	animate( DeltaTime, NumOfFrames, true  );		
 			break;
 
 	default :
@@ -214,4 +222,18 @@ void Sprite::SetPos(float x, float y) {
   m_position.x = x;
   m_position.y = y;
   m_position.z = 0;
+}
+
+  Vector* Sprite::getVec(){
+
+	return  &m_position; 
+
+	    
+  }
+
+void Sprite::HandleMSG(){
+
+m_messenger.handleMSG( getVec() );
+
+
 }

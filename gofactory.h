@@ -10,6 +10,9 @@
 #pragma once
 #include "Sprite.h"
 #include <vector>
+#include "Messages.h"
+#include "Behaviour.h"
+
 class GOfactory {
 public:
   GOfactory();
@@ -23,9 +26,12 @@ public:
  // void drawAllGO(SDL_Renderer *pRender);
  // void addGO(std::string Textureid, int NumCol, int NumRow, int Width,
  //            int Height, float PosX, float PosY);
+
+  void addBehaviour(); 
   void addGFX( Sprite graphic  );
-  void updateGFX( SDL_Event Event, float deltaT );
+  void updateGFX( float deltaT );
   void drawGFX(SDL_Renderer * pRender);
+ 
  // void addCollectable(std::string Textureid, float initX, float initY);
  // void Anim(float duration, int key, int NumFrames, SDL_Renderer *pRender);
  // void AddGrid(int NumCol, int NumRows, std::string textureID, int width,
@@ -34,6 +40,6 @@ public:
 private:
 //  std::map<int, Sprite> GOList;
   std::vector<Sprite> Gfx;
-
+  
 //  int P_Num_Keys;
 };

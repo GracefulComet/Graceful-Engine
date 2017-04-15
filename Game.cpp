@@ -28,7 +28,7 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
-	fact.updateGFX(ev, 60.0f  );	
+	fact.updateGFX(60.0f  );	
 //	fact.Anim(90.0f , 501 ,6,MainRender);
 }
 
