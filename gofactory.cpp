@@ -11,7 +11,7 @@
 
 // TODO: Add other Object Types. types to do , Terrain, UI and Forground
 
-GOfactory::GOfactory() {// P_Num_Keys = 0;
+GOfactory::GOfactory() {m_IDKeys = 0;
 }
 
 void GOfactory::addGFX(Sprite graphic){ Gfx.push_back(graphic);  }
@@ -33,6 +33,15 @@ void GOfactory::drawGFX(SDL_Renderer * pRender){
 
 }
 
+void GOfactory::addBehaviour(Behaviour* Addee){
+m_Entities.push_back(Addee);
+}
+void GOfactory::updateBehaviour(){ 
+	for (unsigned int i =0; i < m_Entities.size(); i++){
+	m_Entities[i]->update();	
+	}
+
+}
 
 //void GOfactory::loadlist(std::string id) {}
 

@@ -27,7 +27,8 @@ public:
  // void addGO(std::string Textureid, int NumCol, int NumRow, int Width,
  //            int Height, float PosX, float PosY);
 
-  void addBehaviour(); 
+  void addBehaviour( Behaviour* Addee );
+  void updateBehaviour();
   void addGFX( Sprite graphic  );
   void updateGFX( float deltaT );
   void drawGFX(SDL_Renderer * pRender);
@@ -40,6 +41,6 @@ public:
 private:
 //  std::map<int, Sprite> GOList;
   std::vector<Sprite> Gfx;
-  
-//  int P_Num_Keys;
+  std::vector<Behaviour*> m_Entities; 
+  int m_IDKeys;
 };
