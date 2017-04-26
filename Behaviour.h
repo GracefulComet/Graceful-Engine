@@ -76,8 +76,27 @@ class PlayerCtrl : public Behaviour
 
     }else{
         if(event->type = SDL_KEYUP){
-                Movement == Move::Idle;
+            switch(event->key.keysym.sym){
+
+            case SDLK_LEFT:
+                Movement = Move::Idle;
+                break;
+            case SDLK_RIGHT:
+                Movement = Move::Idle;
+                break;
+
+            case SDLK_UP:
+                Movement = Move::Idle;
+                break;
+            case SDLK_DOWN:
+                Movement = Move::Idle;
+                break;
+
+            default:
+                    Movement = Move::Idle;
+                break;
                 }
+            }
     }
 
 	switch ( Movement ){
