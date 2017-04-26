@@ -27,15 +27,17 @@ class PlayerCtrl : public Behaviour
 	public:
 	PlayerCtrl();
 
-    PlayerCtrl(MSGreciever * firstListener, int ID ){
+    PlayerCtrl(MSGreciever * firstListener,SDL_Event* Evnt,int ID ){
 	id = ID;	
 	msger = MSGdispatcher(firstListener);
+    event =  Evnt;
     }
 
    PlayerCtrl( PlayerCtrl &mycopy ){
 
        this->id = mycopy.id;
        this->msger = mycopy.msger;
+       this->event = mycopy.event;
     }
    PlayerCtrl* getPtr(){
    return this;
@@ -46,9 +48,9 @@ class PlayerCtrl : public Behaviour
 
 	void update(){
 	
-    if(SDL_PollEvent(&event)){
-	if(event.type == SDL_KEYDOWN ){	
-	switch(event.key.keysym.sym){
+
+    if(event->type == SDL_KEYDOWN ){
+    switch(event->key.keysym.sym){
 
 		case SDLK_LEFT:
 			Movement = Move::Left;
@@ -71,11 +73,16 @@ class PlayerCtrl : public Behaviour
 			break;
 
 		}
-	}
-	}
+
+    }else{
+        if(event->type = SDL_KEYUP){
+                Movement == Move::Idle;
+                }
+    }
+
 	switch ( Movement ){
 		{case Move::Left :
-		 Velocity = Vector(-5.0f, 0.0f,0.0f) ;	
+         Velocity = Vector(-0.8f, 0.0f,0.0f) ;
 		myMessage = SpriteMSG(Velocity ,id );
 		msger.sendMSG(new SpriteMSG(myMessage));
 
@@ -83,7 +90,7 @@ class PlayerCtrl : public Behaviour
 		break;}
 
 		{case Move::Right:
-	 Velocity = Vector(5.0f, 0.0f,0.0f) ;	
+     Velocity = Vector(0.8f, 0.0f,0.0f) ;
 		myMessage =  SpriteMSG(Velocity ,id );	
 		msger.sendMSG(new SpriteMSG(myMessage));
 
@@ -91,13 +98,13 @@ class PlayerCtrl : public Behaviour
 			break;}
 
 		{	case Move::Up:
-	 Velocity = Vector  (0.0f, 5.0f,0.0f) ;	
+     Velocity = Vector  (0.0f,- 0.8f,0.0f) ;
 		myMessage =  SpriteMSG(Velocity ,id );	
 		msger.sendMSG(new SpriteMSG(myMessage));
 
 				break;}
 		{case Move::Down:
-	 Velocity = Vector  (0.0f,-5.0f,0.0f) ;	
+     Velocity = Vector  (0.0f,0.8f,0.0f) ;
 		myMessage =  SpriteMSG(Velocity ,id);	
 		msger.sendMSG(new SpriteMSG(myMessage));
 
@@ -113,15 +120,13 @@ class PlayerCtrl : public Behaviour
 		Movement = Move::Idle;
 		break;
 	}
-if(event.type = SDL_KEYUP){
-        Movement == Move::Idle;
-        }
+
 }
 	private:
 	Move Movement;
  	MSGdispatcher msger;
 	SpriteMSG myMessage;
  	Vector Velocity; 
-	SDL_Event event;
+    SDL_Event* event;
 
 };

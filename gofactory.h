@@ -22,7 +22,7 @@ public:
   void addGFX( Sprite graphic  );
   void updateGFX( float deltaT );
   void drawGFX(SDL_Renderer * pRender);
-  void addPlayer(std::string filetoSprite, SDL_Renderer* render); 
+  void addPlayer(std::string filetoSprite,SDL_Event* evt, SDL_Renderer* render);
 private:
  std::vector<Sprite> Gfx;
   std::vector<Behaviour*> m_Entities; 

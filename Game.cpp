@@ -28,6 +28,7 @@ void Game::GameLoop() {
 
 void Game::composeFrame() {
 	m_currentFrame = int((SDL_GetTicks() / 100) % 60);
+    SDL_PollEvent(&ev);
 	fact.updateBehaviour();	
 	fact.updateGFX(60.0f  );
 
@@ -70,7 +71,7 @@ Game::Game() {
 
 
 
-    fact.addPlayer("Background.sp", MainRender);
+    fact.addPlayer("Background.sp",&ev, MainRender);
 
 
 

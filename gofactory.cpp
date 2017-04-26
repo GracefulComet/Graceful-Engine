@@ -46,14 +46,14 @@ void GOfactory::updateBehaviour(){
 	}
 }
 
-void GOfactory::addPlayer(std::string filetoSprite, SDL_Renderer* render ){
+void GOfactory::addPlayer(std::string filetoSprite, SDL_Event* evt, SDL_Renderer* render ){
 m_IDKeys++;
 Sprite temp(filetoSprite, render, state::animated,m_IDKeys );
 addGFX (temp);
 for ( unsigned int i=0; i < Gfx.size();i++  ) {
 if (Gfx[i].getID() == m_IDKeys ){
 
-addBehaviour(new PlayerCtrl(Gfx[i].getListener(),m_IDKeys ));
+addBehaviour(new PlayerCtrl(Gfx[i].getListener(),evt,m_IDKeys ));
 Gfx[i].SetPos(0.0f , 0.0f);
 
     }
