@@ -20,6 +20,8 @@ TileMap::TileMap(int ncol, int nrow, int Height, int width) {
       id++;
     }
   }
+  m_CurCol = 0;
+  m_CurRow = 0 ;
 }
 TileMap::TileMap() {}
 TileMap::~TileMap() {}

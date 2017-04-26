@@ -25,9 +25,11 @@ Sprite::Sprite(std::string FileName , SDL_Renderer *Render ){
 LoadFromFile(FileName,Render);
 State = state::idle;
 }
-Sprite::Sprite(std::string FileName , SDL_Renderer *Render, state stat ){
+Sprite::Sprite(std::string FileName , SDL_Renderer *Render, state stat, int id ){
 LoadFromFile(FileName,Render);
 State = stat;
+m_ID = id;
+m_messenger =  MSGreciever();
 }
 Sprite::Sprite() {}
 Sprite::~Sprite() { }
@@ -96,12 +98,7 @@ void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
     m_position.x = tempX;
     m_position.y = tempY;
     m_position.z = 0;
-    if ( m_position.x == NULL ){ 
-    m_position.x = 0;
-    }
-    if ( m_position.y == NULL ){ 
-    m_position.y = 0;
-    }
+    
 
     m_tiles.setCurTile(tempCTile);
     m_animOffset = 0;
@@ -135,6 +132,7 @@ void Sprite::SaveToFile(std::string FileName, std::string TextureFilename,
 
 void Sprite::update( float DeltaTime , int NumOfFrames) {
 
+    this->HandleMSG();
 	switch (State ){ 
 	
 		case  state::idle : 
@@ -237,3 +235,10 @@ m_messenger.handleMSG( getVec() );
 
 
 }
+MSGreciever* Sprite::getListener(){
+return &m_messenger;
+}
+int Sprite::getID(){
+return m_ID;
+}
+

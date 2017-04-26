@@ -23,7 +23,7 @@ public:
   Sprite(int width, int height, int nCol, int nRow, std::string textureID);
   Sprite( std::string FileName, SDL_Renderer *Render);
 
-  Sprite( std::string FileName, SDL_Renderer *Render, state stat );
+  Sprite( std::string FileName, SDL_Renderer *Render, state stat, int id );
 
 
   Sprite();
@@ -41,6 +41,9 @@ public:
   TileMap m_tiles;
   Vector* getVec();
   void HandleMSG( ); 
+  MSGreciever* getListener();
+  int getID();
+
 
 protected:
   bool reverse;
@@ -50,6 +53,6 @@ protected:
   int m_animOffset;
   TimerF m_timer;
   state State;
-
+  int m_ID;
 private:
 };

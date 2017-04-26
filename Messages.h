@@ -25,13 +25,14 @@ class MSGreciever{
 
 	public:
 	MSGreciever();
+	MSGreciever(int ID);
 	~MSGreciever();
 	void handleMSG(Vector* p_vec );
 
-	void getMSGS(SpriteMSG message );
+	void getMSGS(SpriteMSG* message );
 	private:
 
-	std::vector <SpriteMSG> que;
+	std::vector <SpriteMSG*> que;
 	int id;
 
 };
@@ -44,7 +45,7 @@ class MSGdispatcher {
 	~MSGdispatcher();
 //	void sendMSG(msg Message);
 	void registerMSGER (MSGreciever* listener );
-	void sendMSG(SpriteMSG Message);
+	void sendMSG(SpriteMSG* Message);
 	private:
 
 
