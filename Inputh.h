@@ -45,6 +45,7 @@ public:
 private:
   static InputHandler *s_Instance;
 
+
   std::vector<SDL_Joystick *> m_joysticks;
   bool m_bJoysticksInitialised;
 };

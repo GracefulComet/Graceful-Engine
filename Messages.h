@@ -3,21 +3,29 @@
 #include <vector>
 #include "vmath.h"
 
+class msg{
+public:
+    msg(){}
+    virtual~msg(){}
+//    msg(int target){m_targetid = target;}
+    virtual void update(void * Variables)=0;
+    int getTargetID();
+    int m_targetid;
+
+};
 
 
-class SpriteMSG  {
+class SpriteMSG :public msg {
 
 	public:
 
 		SpriteMSG();
 		~SpriteMSG();
 		SpriteMSG(Vector payl, int target );
-		void update(Vector* updatedValue);
-		int getTargetID();
-	private:
-	
-	Vector m_payload;
-	int m_targetid;
+        void update(void* Variables);
+
+        Vector m_payload;
+
 
 };
 
@@ -27,12 +35,12 @@ class MSGreciever{
 	MSGreciever();
 	MSGreciever(int ID);
 	~MSGreciever();
-	void handleMSG(Vector* p_vec );
+    void handleMSG(void *passedvar);
 
-	void getMSGS(SpriteMSG* message );
+    void getMSGS(msg* message );
 	private:
 
-	std::vector <SpriteMSG*> que;
+    std::vector <msg*> que;
 	int id;
 
 };
@@ -45,7 +53,7 @@ class MSGdispatcher {
 	~MSGdispatcher();
 //	void sendMSG(msg Message);
 	void registerMSGER (MSGreciever* listener );
-	void sendMSG(SpriteMSG* Message);
+    void sendMSG(msg* Message);
 	private:
 
 

@@ -47,8 +47,8 @@ class PlayerCtrl : public Behaviour
 	~PlayerCtrl(){ }
 
 	void update(){
-	
 
+    SDL_PollEvent(event);
     if(event->type == SDL_KEYDOWN ){
     switch(event->key.keysym.sym){
 
@@ -102,37 +102,37 @@ class PlayerCtrl : public Behaviour
 	switch ( Movement ){
 		{case Move::Left :
          Velocity = Vector(-0.8f, 0.0f,0.0f) ;
-		myMessage = SpriteMSG(Velocity ,id );
-		msger.sendMSG(new SpriteMSG(myMessage));
+        myMessage = new SpriteMSG(Velocity ,id );
+        msger.sendMSG(myMessage);
 
 
 		break;}
 
 		{case Move::Right:
      Velocity = Vector(0.8f, 0.0f,0.0f) ;
-		myMessage =  SpriteMSG(Velocity ,id );	
-		msger.sendMSG(new SpriteMSG(myMessage));
+        myMessage = new SpriteMSG(Velocity ,id );
+        msger.sendMSG(myMessage);
 
 			
 			break;}
 
 		{	case Move::Up:
      Velocity = Vector  (0.0f,- 0.8f,0.0f) ;
-		myMessage =  SpriteMSG(Velocity ,id );	
-		msger.sendMSG(new SpriteMSG(myMessage));
+        myMessage = new SpriteMSG(Velocity ,id );
+        msger.sendMSG(myMessage);
 
 				break;}
 		{case Move::Down:
      Velocity = Vector  (0.0f,0.8f,0.0f) ;
-		myMessage =  SpriteMSG(Velocity ,id);	
-		msger.sendMSG(new SpriteMSG(myMessage));
+        myMessage = new  SpriteMSG(Velocity ,id);
+        msger.sendMSG(myMessage);
 
 	
 		break;}
 		{	case Move::Idle :
 	Velocity = Vector(0.0 , 0.0, 0.0);	
-	myMessage = SpriteMSG(Velocity, id);
-		msger.sendMSG(new SpriteMSG(myMessage));
+    myMessage = new SpriteMSG(Velocity, id);
+        msger.sendMSG(myMessage);
 
 			break;}
 	default :
@@ -144,7 +144,7 @@ class PlayerCtrl : public Behaviour
 	private:
 	Move Movement;
  	MSGdispatcher msger;
-	SpriteMSG myMessage;
+    msg* myMessage;
  	Vector Velocity; 
     SDL_Event* event;
 

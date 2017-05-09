@@ -7,17 +7,20 @@
 //
 //
 //
+
 #include "Game.h"
+
 void Game::Setup() {}
 
 void Game::GameLoop() {
 	while (isOpen == true) {
-	TheInputHandler::Instance()->update(ev);
+//	TheInputHandler::Instance()->update(ev);
 
 		if (SDL_PollEvent(&ev) == 0) {
 			RL();
 		}
 		while (SDL_PollEvent(&ev) != 0) {
+            GetFrameEvents().push_back(ev);
 			RL();
 			if (ev.type == SDL_QUIT) {
 				isOpen = false;

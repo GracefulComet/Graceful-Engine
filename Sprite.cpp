@@ -231,7 +231,7 @@ void Sprite::SetPos(float x, float y) {
 
 void Sprite::HandleMSG(){
 
-m_messenger.handleMSG( getVec() );
+m_messenger.handleMSG(this->getVec());
 
 
 }
