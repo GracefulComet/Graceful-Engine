@@ -48,6 +48,7 @@ public:
 protected:
   bool reverse;
   Vector m_position;
+  Vector m_movespeed;
   MSGreciever m_messenger;
   std::string m_textureID;
   int m_animOffset;

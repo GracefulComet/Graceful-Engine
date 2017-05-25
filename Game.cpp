@@ -20,7 +20,7 @@ void Game::GameLoop() {
 			RL();
 		}
 		while (SDL_PollEvent(&ev) != 0) {
-            GetFrameEvents().push_back(ev);
+
 			RL();
 			if (ev.type == SDL_QUIT) {
 				isOpen = false;

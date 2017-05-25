@@ -2,6 +2,9 @@
 #include <string>
 #include <vector>
 #include "vmath.h"
+#include <SDL2/SDL.h>
+
+enum class MSGTYPE {Physics , Animation };
 
 class msg{
 public:
@@ -11,9 +14,23 @@ public:
     virtual void update(void * Variables)=0;
     int getTargetID();
     int m_targetid;
+    MSGTYPE m_type;
 
 };
 
+class PhysicsMSG : public msg {
+	public:
+	
+	PhysicsMSG();
+	~PhysicsMSG();	
+    PhysicsMSG( Vector velocity , float dt, int ID   );
+	void update (void* Variables);
+	Vector m_VecPayload;
+
+	float m_DeltaTime;
+	
+
+};
 
 class SpriteMSG :public msg {
 
@@ -41,7 +58,7 @@ class MSGreciever{
 	private:
 
     std::vector <msg*> que;
-	int id;
+    int id;
 
 };
 

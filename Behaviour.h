@@ -3,6 +3,8 @@
 #include "Messages.h"
 #include <iostream>
 #include <SDL2/SDL.h>
+#include "Timer.h"
+
 enum class Move{Left, Right, Up , Down ,Idle };
 
 class Behaviour {
@@ -31,6 +33,8 @@ class PlayerCtrl : public Behaviour
 	id = ID;	
 	msger = MSGdispatcher(firstListener);
     event =  Evnt;
+
+    Movement = Move::Idle;
     }
 
    PlayerCtrl( PlayerCtrl &mycopy ){
@@ -47,8 +51,16 @@ class PlayerCtrl : public Behaviour
 	~PlayerCtrl(){ }
 
 	void update(){
+	
+	
 
-    SDL_PollEvent(event);
+	LastMovement = Movement;
+
+    if(m_time.cooldown(60.0f) == true ){
+	m_time.reset();	
+	}
+
+
     if(event->type == SDL_KEYDOWN ){
     switch(event->key.keysym.sym){
 
@@ -70,12 +82,12 @@ class PlayerCtrl : public Behaviour
 
 		default:
 		       	Movement = Move::Idle;
-			break;
+		
 
 		}
 
     }else{
-        if(event->type = SDL_KEYUP){
+        if(event->type == SDL_KEYUP){
             switch(event->key.keysym.sym){
 
             case SDLK_LEFT:
@@ -94,58 +106,74 @@ class PlayerCtrl : public Behaviour
 
             default:
                     Movement = Move::Idle;
-                break;
+               
                 }
             }
     }
 
 	switch ( Movement ){
 		{case Move::Left :
-         Velocity = Vector(-0.8f, 0.0f,0.0f) ;
-        myMessage = new SpriteMSG(Velocity ,id );
-        msger.sendMSG(myMessage);
+//        Velocity += Vector(-0.8f, 0.0f,0.0f) ;
+//        myMessage = new SpriteMSG(Velocity ,id );
+       Velocity += Vector(-0.80f, 0.0f,0.0f) ;
+	 
+   myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id );
+	msger.sendMSG(myMessage);
 
 
 		break;}
 
 		{case Move::Right:
-     Velocity = Vector(0.8f, 0.0f,0.0f) ;
-        myMessage = new SpriteMSG(Velocity ,id );
+ 	   	
+	
+	Velocity += Vector(0.8f, 0.0f,0.0f) ;
+//        myMessage = new SpriteMSG(Velocity ,id );
+        myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
         msger.sendMSG(myMessage);
-
+	
 			
 			break;}
 
 		{	case Move::Up:
-     Velocity = Vector  (0.0f,- 0.8f,0.0f) ;
-        myMessage = new SpriteMSG(Velocity ,id );
-        msger.sendMSG(myMessage);
+     Velocity  += Vector  (0.0f,- 0.8f,0.0f) ;
+//        myMessage = new SpriteMSG(Velocity ,id );
+myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
+     msger.sendMSG(myMessage);
 
 				break;}
 		{case Move::Down:
-     Velocity = Vector  (0.0f,0.8f,0.0f) ;
-        myMessage = new  SpriteMSG(Velocity ,id);
+     Velocity += Vector  (0.0f,0.8f,0.0f) ;
+//        myMessage = new  SpriteMSG(Velocity ,id);
+     myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
         msger.sendMSG(myMessage);
 
 	
 		break;}
 		{	case Move::Idle :
-	Velocity = Vector(0.0 , 0.0, 0.0);	
-    myMessage = new SpriteMSG(Velocity, id);
-        msger.sendMSG(myMessage);
+    Velocity = Vector(0.0 , 0.0, 0.0);
+//myMessage = new SpriteMSG(Velocity, id);
+myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
+    msger.sendMSG(myMessage);
 
 			break;}
 	default :
 		Movement = Move::Idle;
-		break;
+	
 	}
+	
+	
+
+
 
 }
 	private:
 	Move Movement;
+	Move LastMovement;
  	MSGdispatcher msger;
     msg* myMessage;
- 	Vector Velocity; 
+    Vector Velocity;
     SDL_Event* event;
+	TimerF m_time;
 
+	
 };

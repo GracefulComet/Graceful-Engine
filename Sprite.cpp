@@ -99,6 +99,8 @@ void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
     m_position.y = tempY;
     m_position.z = 0;
     
+    m_movespeed = Vector(0,0,0);
+
 
     m_tiles.setCurTile(tempCTile);
     m_animOffset = 0;
@@ -133,6 +135,9 @@ void Sprite::SaveToFile(std::string FileName, std::string TextureFilename,
 void Sprite::update( float DeltaTime , int NumOfFrames) {
 
     this->HandleMSG();
+ //   m_position.x = m_movespeed.Approach(m_movespeed.x,m_position.x, (DeltaTime * 0.000005f));
+ //   m_position.y = m_movespeed.Approach(m_movespeed.y,m_position.y, (DeltaTime * 0.000005f));
+    m_position += (m_movespeed );
 	switch (State ){ 
 	
 		case  state::idle : 
@@ -224,14 +229,15 @@ void Sprite::SetPos(float x, float y) {
 
   Vector* Sprite::getVec(){
 
-	return  &m_position; 
+    return  &m_movespeed;
 
 	    
   }
 
 void Sprite::HandleMSG(){
 
-m_messenger.handleMSG(this->getVec());
+
+m_messenger.handleMSG( this->getVec());
 
 
 }

@@ -11,10 +11,39 @@ void SpriteMSG::update(void* Variables){
 if((Variables) == nullptr){
 
 }else{
-((Vector*)Variables)->operator +=(m_payload);
-//updatedValue->operator +=(m_payload)  ;
-//m_payload.Approach(updatedValue->x ,updatedValue->y, updatedValue->z);
+
+
+
+((Vector*)Variables)->x = m_payload.Approach(m_payload.x , ((Vector*)Variables)->x , (0.00006f * 60.0f ));
+((Vector*)Variables)->y = m_payload.Approach(m_payload.y , ((Vector*)Variables)->y , (0.00006f * 60.0f ));
+((Vector*)Variables)->operator +=(m_payload *= (0.00006f * 60.0f ) );
 }
+}
+
+
+PhysicsMSG::PhysicsMSG(){
+
+}
+
+PhysicsMSG::~PhysicsMSG(){
+
+}
+
+PhysicsMSG::PhysicsMSG(Vector velocity, float dt,int ID ){
+
+	m_VecPayload = velocity;
+	m_type = MSGTYPE::Physics;
+    m_targetid = ID;
+	m_DeltaTime = dt;	
+
+}
+
+void PhysicsMSG::update( void* Variables ){
+
+
+    ((Vector* )Variables )->x = m_VecPayload.Approach(m_VecPayload.x,((Vector*)Variables)->x, ( m_DeltaTime  * 0.15f) );
+    ((Vector* )Variables )->y = m_VecPayload.Approach(m_VecPayload.y,((Vector*)Variables)->y, ( m_DeltaTime ) * 0.15f);
+  ((Vector*)Variables)->operator+= (m_VecPayload *= 0.15f );
 }
 
 MSGdispatcher::MSGdispatcher(){}

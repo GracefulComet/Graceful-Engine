@@ -7,6 +7,7 @@
 //
 //
 //
+#pragma once
 #include <SDL2/SDL.h>
 
 class TimerF {
@@ -19,6 +20,7 @@ public:
   }
   bool cooldown(float duration);
   void reset();
+  float getDelta();
 
 private:
   bool m_ready;
