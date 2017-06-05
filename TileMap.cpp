@@ -59,3 +59,9 @@ int TileMap::getNumAnimFrames(){
 
     return m_numframestoAnimate;
 }
+void TileMap::setState(state DesiredState){
+    State = DesiredState;
+}
+state TileMap::getState(){
+    return State;
+}

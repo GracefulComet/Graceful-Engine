@@ -23,11 +23,11 @@ Sprite::Sprite(int width, int height, int nCol, int nRow,
 
 Sprite::Sprite(std::string FileName , SDL_Renderer *Render ){
 LoadFromFile(FileName,Render);
-State = state::idle;
+m_tiles.setState(state::idle);
 }
 Sprite::Sprite(std::string FileName , SDL_Renderer *Render, state stat, int id ){
 LoadFromFile(FileName,Render);
-State = stat;
+m_tiles.setState(stat);
 m_ID = id;
 m_messenger =  MSGreciever(m_ID);
 }
@@ -139,7 +139,7 @@ void Sprite::update( float DeltaTime) {
 //    m_position.x = m_movespeed.Approach(m_movespeed.x,m_position.x, (DeltaTime * 0.15f));
 //    m_position.y = m_movespeed.Approach(m_movespeed.y,m_position.y, (DeltaTime * 0.15f));
     m_position += (m_movespeed );
-	switch (State ){ 
+    switch (m_tiles.getState()){
 	
 		case  state::idle : 
 			break;
@@ -153,7 +153,7 @@ void Sprite::update( float DeltaTime) {
 
 	default :
 	
-		State = state::idle;
+        m_tiles.setState(state::idle);
 		break;
 	
 	

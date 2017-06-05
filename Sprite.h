@@ -16,7 +16,7 @@
 #include <string>
 #include "Messages.h"
 
-	enum class state {idle,animated, cycle };
+
 class Sprite // small graphics object
 {
 public:
@@ -54,7 +54,7 @@ protected:
   std::string m_textureID;
   int m_animOffset;
   TimerF m_timer;
-  state State;
+
 
   int m_ID;
 private:

@@ -39,11 +39,11 @@ public:
 
     AnimationMSG(){}
     ~AnimationMSG(){}
-    AnimationMSG(int curTile, int AnimateFrames , int ID);
+    AnimationMSG(int curTile, int AnimateFrames, state desiredState , int ID);
     void update(void* Variables);
     int m_curFrameSet;
     int m_AnimationFramesSet;
-
+    state m_state;
 
 
 };

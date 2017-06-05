@@ -131,7 +131,7 @@ class PlayerCtrl : public Behaviour
         myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
         msger.sendMSG(myMessage);
 
-        myMessage = new AnimationMSG( 0, 7, id );
+        myMessage = new AnimationMSG( 0, 17, state::cycle , id );
 
         msger.sendMSG(  myMessage);
 	

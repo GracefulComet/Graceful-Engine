@@ -50,11 +50,12 @@ void PhysicsMSG::update( void* Variables ){
 }
 
 
-AnimationMSG::AnimationMSG(int curTile, int AnimateFrames , int ID){
+AnimationMSG::AnimationMSG(int curTile, int AnimateFrames , state desiredState, int ID){
     m_type = MSGTYPE::Animation;
     m_curFrameSet = curTile;
     m_AnimationFramesSet = AnimateFrames;
     m_targetid = ID;
+    m_state = desiredState;
 }
 void  AnimationMSG::update(void* Variables){
     if((Variables) == nullptr){
@@ -63,6 +64,8 @@ void  AnimationMSG::update(void* Variables){
 
     ((TileMap*)Variables)->setCurTile(m_curFrameSet);
     ((TileMap*)Variables)->setNumAnimFrames(m_AnimationFramesSet);
+    ((TileMap*)Variables)->setState(m_state);
+
     }
 
 }

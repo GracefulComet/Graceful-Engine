@@ -1,6 +1,8 @@
 #pragma once
 #include <map>
 
+    enum class state {idle,animated, cycle };
+
 struct Frame {
   int x; // collum
   int y; // row
@@ -14,6 +16,8 @@ public:
 
   void setCurTile(int cFrame);
   void setNumAnimFrames(int numofFrames);
+  void setState(state DesiredState);
+  state getState();
   int getNumAnimFrames();
   int getH();
   int getW();
@@ -32,5 +36,6 @@ protected:
   int m_Height; // hight of an individual tile
   int m_Width;  // width of an individual tile
   int m_curTile;
+  state State;
   std::map<int, Frame> m_Maping;
 };
