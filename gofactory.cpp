@@ -19,7 +19,7 @@ void GOfactory::addGFX(Sprite graphic){ Gfx.push_back(graphic);  }
 void GOfactory::updateGFX(float deltaT){ 
 	
 	for (unsigned int i =0; i < Gfx.size();i++ ){
-	Gfx[i].update(deltaT , 7 );
+    Gfx[i].update(deltaT );
 	}
 
 
@@ -49,12 +49,14 @@ void GOfactory::updateBehaviour(){
 void GOfactory::addPlayer(std::string filetoSprite, SDL_Event* evt, SDL_Renderer* render ){
 m_IDKeys++;
 Sprite temp(filetoSprite, render, state::animated,m_IDKeys );
+temp.SetPos(0.0f,0.0f);
 addGFX (temp);
+
 for ( unsigned int i=0; i < Gfx.size();i++  ) {
 if (Gfx[i].getID() == m_IDKeys ){
 
 addBehaviour(new PlayerCtrl(Gfx[i].getListener(),evt,m_IDKeys ));
-Gfx[i].SetPos(0.0f , 0.0f);
+
 
     }
 }

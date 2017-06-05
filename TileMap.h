@@ -1,3 +1,4 @@
+#pragma once
 #include <map>
 
 struct Frame {
@@ -12,6 +13,8 @@ public:
   ~TileMap();
 
   void setCurTile(int cFrame);
+  void setNumAnimFrames(int numofFrames);
+  int getNumAnimFrames();
   int getH();
   int getW();
   int getCurrCol();
@@ -21,6 +24,7 @@ public:
   int getCurrTile();
 
 protected:
+  int m_numframestoAnimate;
   int m_NumCol; // number of collums
   int m_NumRow; // number Of Rows
   int m_CurCol; // Current Collum

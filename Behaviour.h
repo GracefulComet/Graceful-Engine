@@ -130,6 +130,10 @@ class PlayerCtrl : public Behaviour
 //        myMessage = new SpriteMSG(Velocity ,id );
         myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
         msger.sendMSG(myMessage);
+
+        myMessage = new AnimationMSG( 0, 7, id );
+
+        msger.sendMSG(  myMessage);
 	
 			
 			break;}
@@ -155,7 +159,7 @@ myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
 myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
     msger.sendMSG(myMessage);
 
-			break;}
+            break;}
 	default :
 		Movement = Move::Idle;
 	

@@ -39,12 +39,34 @@ PhysicsMSG::PhysicsMSG(Vector velocity, float dt,int ID ){
 }
 
 void PhysicsMSG::update( void* Variables ){
-
+    if((Variables) == nullptr){
+    std::cout << " Got Null" <<std::endl;
+    }else{
 
     ((Vector* )Variables )->x = m_VecPayload.Approach(m_VecPayload.x,((Vector*)Variables)->x, ( m_DeltaTime  * 0.15f) );
     ((Vector* )Variables )->y = m_VecPayload.Approach(m_VecPayload.y,((Vector*)Variables)->y, ( m_DeltaTime ) * 0.15f);
   ((Vector*)Variables)->operator+= (m_VecPayload *= 0.15f );
+    }
 }
+
+
+AnimationMSG::AnimationMSG(int curTile, int AnimateFrames , int ID){
+    m_type = MSGTYPE::Animation;
+    m_curFrameSet = curTile;
+    m_AnimationFramesSet = AnimateFrames;
+    m_targetid = ID;
+}
+void  AnimationMSG::update(void* Variables){
+    if((Variables) == nullptr){
+    std::cout << " Got Null" <<std::endl;
+    }else{
+
+    ((TileMap*)Variables)->setCurTile(m_curFrameSet);
+    ((TileMap*)Variables)->setNumAnimFrames(m_AnimationFramesSet);
+    }
+
+}
+
 
 MSGdispatcher::MSGdispatcher(){}
 MSGdispatcher::MSGdispatcher( MSGreciever * FirstTarget ){
@@ -79,14 +101,35 @@ void MSGreciever::getMSGS(msg* message) {
 
 }
 
-void MSGreciever::handleMSG(void * passedvar){
+MSGTYPE MSGreciever::peakatMSGS(int indextoPeak){
 
-	for (unsigned int i =0; i < que.size(); i++){
-	if( id == que[i]->getTargetID())	{
+if(indextoPeak < que.size()){
+   return que[indextoPeak]->m_type;
+          }
+}
+
+void MSGreciever::handleMSGS(void * passedvar){
+
+    for (unsigned int i =0; i < que.size(); i++){
+    if( id == que[i]->getTargetID())	{
         que[i]->update(passedvar);
-		}
-	}
+        }
+    }
     if ( que.empty() == false){
     que.pop_back();
     }
+}
+
+bool MSGreciever::handleMSG(void * passedvar){
+
+    if(que.empty() == false){
+        if(id == que[0]->getTargetID()){
+            que[0]->update(passedvar);
+            que.erase(que.begin());
+        }
+        if(que.empty() == true){
+            return true;
+        }else{return false;}
+    }
+
 }

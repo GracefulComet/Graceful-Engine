@@ -3,8 +3,9 @@
 #include <vector>
 #include "vmath.h"
 #include <SDL2/SDL.h>
-
-enum class MSGTYPE {Physics , Animation };
+#include<iostream>
+#include"TileMap.h"
+enum class MSGTYPE {Failed ,Physics , Animation };
 
 class msg{
 public:
@@ -32,6 +33,22 @@ class PhysicsMSG : public msg {
 
 };
 
+class AnimationMSG : public msg{
+
+public:
+
+    AnimationMSG(){}
+    ~AnimationMSG(){}
+    AnimationMSG(int curTile, int AnimateFrames , int ID);
+    void update(void* Variables);
+    int m_curFrameSet;
+    int m_AnimationFramesSet;
+
+
+
+};
+
+
 class SpriteMSG :public msg {
 
 	public:
@@ -52,9 +69,12 @@ class MSGreciever{
 	MSGreciever();
 	MSGreciever(int ID);
 	~MSGreciever();
-    void handleMSG(void *passedvar);
-
+    bool handleMSG(void *passedvar);
+    void handleMSGS(void *passedvar);
     void getMSGS(msg* message );
+    MSGTYPE peakatMSGS(int indextoPeak);
+
+
 	private:
 
     std::vector <msg*> que;

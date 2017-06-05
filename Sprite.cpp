@@ -29,7 +29,7 @@ Sprite::Sprite(std::string FileName , SDL_Renderer *Render, state stat, int id )
 LoadFromFile(FileName,Render);
 State = stat;
 m_ID = id;
-m_messenger =  MSGreciever();
+m_messenger =  MSGreciever(m_ID);
 }
 Sprite::Sprite() {}
 Sprite::~Sprite() { }
@@ -104,6 +104,7 @@ void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
 
     m_tiles.setCurTile(tempCTile);
     m_animOffset = 0;
+    m_tiles.setNumAnimFrames(0);
     ifs.close();
 	
   
@@ -132,22 +133,22 @@ void Sprite::SaveToFile(std::string FileName, std::string TextureFilename,
   ofs.close();
 }
 
-void Sprite::update( float DeltaTime , int NumOfFrames) {
+void Sprite::update( float DeltaTime) {
 
     this->HandleMSG();
- //   m_position.x = m_movespeed.Approach(m_movespeed.x,m_position.x, (DeltaTime * 0.000005f));
- //   m_position.y = m_movespeed.Approach(m_movespeed.y,m_position.y, (DeltaTime * 0.000005f));
+//    m_position.x = m_movespeed.Approach(m_movespeed.x,m_position.x, (DeltaTime * 0.15f));
+//    m_position.y = m_movespeed.Approach(m_movespeed.y,m_position.y, (DeltaTime * 0.15f));
     m_position += (m_movespeed );
 	switch (State ){ 
 	
 		case  state::idle : 
 			break;
 	case  state::animated :
-	animate( DeltaTime , NumOfFrames, false  );		
+    animate( DeltaTime , m_tiles.getNumAnimFrames(), false  );
 
 			break;
 	case  state::cycle : 
-	animate( DeltaTime, NumOfFrames, true  );		
+    animate( DeltaTime, m_tiles.getNumAnimFrames(), true  );
 			break;
 
 	default :
@@ -236,8 +237,32 @@ void Sprite::SetPos(float x, float y) {
 
 void Sprite::HandleMSG(){
 
+    //todo setup msgpeak. then use a switch statement options
+//void* data;
+//data = this->getVec();
+    switch (m_messenger.peakatMSGS(0)) {
+    case MSGTYPE::Failed :
 
-m_messenger.handleMSG( this->getVec());
+        break;
+    case MSGTYPE::Physics :
+
+    if( m_messenger.handleMSG( this->getVec()) == false ){
+        this->HandleMSG();
+    }
+            break;
+    case MSGTYPE::Animation :
+
+
+        if( m_messenger.handleMSG( this->getTiles()) == false ){
+            this->HandleMSG();
+        }
+        break;
+
+    default:
+
+        break;
+    }
+
 
 
 }
@@ -248,3 +273,6 @@ int Sprite::getID(){
 return m_ID;
 }
 
+TileMap* Sprite::getTiles(){
+    return &m_tiles;
+}

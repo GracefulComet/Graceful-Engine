@@ -33,12 +33,13 @@ public:
   void SaveToFile(std::string FileName, std::string TextureFilename,
                   std::string textureID);
   void draw(SDL_Renderer *pRenderer);
-  void update(float DeltaTime , int NumOfFrames);
+  void update(float DeltaTime);
   void animate(float DurPerFrame, int NumOfFrames, bool Cycle);
   void setCurTile(int CurT);
   void Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle);
   void SetPos(float x, float y);
   TileMap m_tiles;
+  TileMap* getTiles();
   Vector* getVec();
   void HandleMSG( ); 
   MSGreciever* getListener();
@@ -54,6 +55,7 @@ protected:
   int m_animOffset;
   TimerF m_timer;
   state State;
+
   int m_ID;
 private:
 };

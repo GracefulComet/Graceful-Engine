@@ -52,3 +52,10 @@ int TileMap::getNRow() {
   temp = m_NumRow;
   return temp;
 }
+void TileMap::setNumAnimFrames(int numofFrames){
+    m_numframestoAnimate = numofFrames;
+}
+int TileMap::getNumAnimFrames(){
+
+    return m_numframestoAnimate;
+}
