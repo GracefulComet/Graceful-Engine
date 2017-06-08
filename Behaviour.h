@@ -115,10 +115,13 @@ class PlayerCtrl : public Behaviour
 		{case Move::Left :
 //        Velocity += Vector(-0.8f, 0.0f,0.0f) ;
 //        myMessage = new SpriteMSG(Velocity ,id );
-       Velocity += Vector(-0.80f, 0.0f,0.0f) ;
+       Velocity += Vector(-0.25f, 0.0f,0.0f) ;
 	 
    myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id );
 	msger.sendMSG(myMessage);
+
+    myMessage = new AnimationMSG( 15, 3, state::animated , id );
+    msger.sendMSG(  myMessage);
 
 
 		break;}
@@ -126,31 +129,32 @@ class PlayerCtrl : public Behaviour
 		{case Move::Right:
  	   	
 	
-	Velocity += Vector(0.8f, 0.0f,0.0f) ;
+    Velocity += Vector(0.25f, 0.0f,0.0f) ;
 //        myMessage = new SpriteMSG(Velocity ,id );
         myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
         msger.sendMSG(myMessage);
 
-        myMessage = new AnimationMSG( 0, 17, state::cycle , id );
-
+        myMessage = new AnimationMSG( 27, 3, state::animated , id );
         msger.sendMSG(  myMessage);
 	
 			
 			break;}
 
 		{	case Move::Up:
-     Velocity  += Vector  (0.0f,- 0.8f,0.0f) ;
+     Velocity  += Vector  (0.0f,- 0.25f,0.0f) ;
 //        myMessage = new SpriteMSG(Velocity ,id );
 myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
      msger.sendMSG(myMessage);
-
+     myMessage = new AnimationMSG( 39, 3, state::animated , id );
+     msger.sendMSG(  myMessage);
 				break;}
 		{case Move::Down:
-     Velocity += Vector  (0.0f,0.8f,0.0f) ;
+     Velocity += Vector  (0.0f,0.25f,0.0f) ;
 //        myMessage = new  SpriteMSG(Velocity ,id);
      myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
         msger.sendMSG(myMessage);
-
+        myMessage = new AnimationMSG( 3, 3, state::animated , id );
+        msger.sendMSG(  myMessage);
 	
 		break;}
 		{	case Move::Idle :

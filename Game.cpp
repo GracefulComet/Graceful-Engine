@@ -74,7 +74,7 @@ Game::Game() {
 
 
 
-    fact.addPlayer("Background.sp",&ev, MainRender);
+    fact.addPlayer("player.sp",&ev, MainRender);
 
 
 

@@ -72,6 +72,8 @@
          </MakeCommands>
       </Target>
       </Build>
+      <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/Collision.cpp">
+      </Unit>
       <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/Game.cpp">
       </Unit>
       <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/Inputh.cpp">
@@ -93,6 +95,8 @@
       <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/vmath.cpp">
       </Unit>
       <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/Behaviour.h">
+      </Unit>
+      <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/Collision.h">
       </Unit>
       <Unit filename="/home/gracefulcomet/Documents/Graceful-Engine/Game.h">
       </Unit>
