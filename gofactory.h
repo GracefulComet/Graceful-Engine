@@ -12,19 +12,22 @@
 #include <vector>
 #include "Messages.h"
 #include "Behaviour.h"
+#include "Collision.h"
 
 class GOfactory {
 public:
   GOfactory();
-
+  ~GOfactory();
   void addBehaviour( Behaviour* Addee );
   void updateBehaviour();
   void addGFX( Sprite graphic  );
   void updateGFX( float deltaT );
   void drawGFX(SDL_Renderer * pRender);
-  void addPlayer(std::string filetoSprite,SDL_Event* evt, SDL_Renderer* render);
+  void updateCollision();
+  void addPlayer(std::string filetoSprite,SDL_Event* evt, SDL_Renderer* render, Vec2DF pos);
 private:
  std::vector<Sprite> Gfx;
-  std::vector<Behaviour*> m_Entities; 
+ CollisionSystem m_Collider;
+  std::vector<Behaviour*> m_Entities;
   int m_IDKeys;
 };

@@ -22,17 +22,21 @@ Sprite::Sprite(int width, int height, int nCol, int nRow,
 }
 
 Sprite::Sprite(std::string FileName , SDL_Renderer *Render ){
+    std::cout << "Sprite custom c'stor " <<std::endl;
 LoadFromFile(FileName,Render);
 m_tiles.setState(state::idle);
 }
 Sprite::Sprite(std::string FileName , SDL_Renderer *Render, state stat, int id ){
+        std::cout << "Sprite custom c'stor " <<std::endl;
 LoadFromFile(FileName,Render);
 m_tiles.setState(stat);
 m_ID = id;
-m_messenger =  MSGreciever(m_ID);
+m_messenger = new MSGreciever(ID(id,OBJTYPE::Sprite));
 }
-Sprite::Sprite() {}
-Sprite::~Sprite() { }
+Sprite::Sprite() {std::cout << "Sprite default c'stor " <<std::endl;}
+Sprite::~Sprite() {std::cout << "Sprite default c'stor " <<std::endl;
+//                  delete m_messenger;
+                  }
 
 void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
   std::string line;
@@ -97,9 +101,8 @@ void Sprite::LoadFromFile(std::string FileName, SDL_Renderer *Render) {
     m_tiles = TileMap(tempNcol, tempNrow, tempH, tempW);
     m_position.x = tempX;
     m_position.y = tempY;
-    m_position.z = 0;
     
-    m_movespeed = Vector(0,0,0);
+    m_movespeed = Vec2DF(0,0);
 
 
     m_tiles.setCurTile(tempCTile);
@@ -225,10 +228,12 @@ void Sprite::Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle) {
 void Sprite::SetPos(float x, float y) {
   m_position.x = x;
   m_position.y = y;
-  m_position.z = 0;
+}
+Vec2DF* Sprite::getPosition(){
+	return &m_position;
 }
 
-  Vector* Sprite::getVec(){
+  Vec2DF* Sprite::getVec(){
 
     return  &m_movespeed;
 
@@ -240,20 +245,20 @@ void Sprite::HandleMSG(){
     //todo setup msgpeak. then use a switch statement options
 //void* data;
 //data = this->getVec();
-    switch (m_messenger.peakatMSGS(0)) {
+    switch (m_messenger->peakatMSGS()) {
     case MSGTYPE::Failed :
 
         break;
     case MSGTYPE::Physics :
 
-    if( m_messenger.handleMSG( this->getVec()) == false ){
+    if( m_messenger->handleMSG( this->getVec()) == false ){
         this->HandleMSG();
     }
             break;
     case MSGTYPE::Animation :
 
 
-        if( m_messenger.handleMSG( this->getTiles()) == false ){
+        if( m_messenger->handleMSG( this->getTiles()) == false ){
             this->HandleMSG();
         }
         break;
@@ -267,7 +272,7 @@ void Sprite::HandleMSG(){
 
 }
 MSGreciever* Sprite::getListener(){
-return &m_messenger;
+return m_messenger;
 }
 int Sprite::getID(){
 return m_ID;

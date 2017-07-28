@@ -15,8 +15,8 @@ class Behaviour {
 	
 	virtual void update()=0;
 
-
-	int id;
+    ID m_Mine;
+    ID m_Target;
 
 };
 
@@ -29,9 +29,11 @@ class PlayerCtrl : public Behaviour
 	public:
 	PlayerCtrl();
 
-    PlayerCtrl(MSGreciever * firstListener,SDL_Event* Evnt,int ID ){
-	id = ID;	
-	msger = MSGdispatcher(firstListener);
+    PlayerCtrl(MSGreciever * firstListener,SDL_Event* Evnt,int idnum  ){
+        m_Mine = ID(idnum, OBJTYPE::GameOBJ);
+        m_Target = ID(idnum, OBJTYPE::Sprite);
+    msger = MSGdispatcher();
+    msger.registerMSGER(firstListener);
     event =  Evnt;
 
     Movement = Move::Idle;
@@ -39,7 +41,8 @@ class PlayerCtrl : public Behaviour
 
    PlayerCtrl( PlayerCtrl &mycopy ){
 
-       this->id = mycopy.id;
+       this->m_Mine = mycopy.m_Mine;
+       this->m_Target = mycopy.m_Target;
        this->msger = mycopy.msger;
        this->event = mycopy.event;
     }
@@ -50,9 +53,9 @@ class PlayerCtrl : public Behaviour
 
 	~PlayerCtrl(){ }
 
-	void update(){
-	
-	
+    void update(){
+
+
 
 	LastMovement = Movement;
 
@@ -113,55 +116,39 @@ class PlayerCtrl : public Behaviour
 
 	switch ( Movement ){
 		{case Move::Left :
-//        Velocity += Vector(-0.8f, 0.0f,0.0f) ;
-//        myMessage = new SpriteMSG(Velocity ,id );
-       Velocity += Vector(-0.25f, 0.0f,0.0f) ;
-	 
-   myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id );
-	msger.sendMSG(myMessage);
 
-    myMessage = new AnimationMSG( 15, 3, state::animated , id );
-    msger.sendMSG(  myMessage);
-
+       Velocity += Vec2DF(-0.25f, 0.0f) ;
+        msger.sendMSG(new PhysicsMSG(Velocity,m_time.getDelta(),m_Target,m_Mine ));
+        msger.sendMSG(new AnimationMSG( 15, 3, state::animated , m_Target,m_Mine ));
 
 		break;}
 
 		{case Move::Right:
  	   	
-	
-    Velocity += Vector(0.25f, 0.0f,0.0f) ;
-//        myMessage = new SpriteMSG(Velocity ,id );
-        myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
-        msger.sendMSG(myMessage);
-
-        myMessage = new AnimationMSG( 27, 3, state::animated , id );
-        msger.sendMSG(  myMessage);
-	
+        Velocity += Vec2DF(0.25f, 0.0f) ;
+        msger.sendMSG(new PhysicsMSG(Velocity,m_time.getDelta(),m_Target,m_Mine ));
+        msger.sendMSG(new AnimationMSG( 27, 3, state::animated ,m_Target,m_Mine  ));
 			
 			break;}
 
 		{	case Move::Up:
-     Velocity  += Vector  (0.0f,- 0.25f,0.0f) ;
-//        myMessage = new SpriteMSG(Velocity ,id );
-myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
-     msger.sendMSG(myMessage);
-     myMessage = new AnimationMSG( 39, 3, state::animated , id );
-     msger.sendMSG(  myMessage);
-				break;}
+
+        Velocity  += Vec2DF  (0.0f,- 0.25f) ;
+        msger.sendMSG(new PhysicsMSG(Velocity,m_time.getDelta(),m_Target,m_Mine ));
+        msger.sendMSG( new AnimationMSG( 39, 3, state::animated , m_Target,m_Mine  ));
+
+            break;}
 		{case Move::Down:
-     Velocity += Vector  (0.0f,0.25f,0.0f) ;
-//        myMessage = new  SpriteMSG(Velocity ,id);
-     myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
-        msger.sendMSG(myMessage);
-        myMessage = new AnimationMSG( 3, 3, state::animated , id );
-        msger.sendMSG(  myMessage);
+
+        Velocity += Vec2DF  (0.0f,0.25f) ;
+        msger.sendMSG(new PhysicsMSG(Velocity,m_time.getDelta(),m_Target,m_Mine ));
+        msger.sendMSG(new AnimationMSG( 3, 3, state::animated , m_Target,m_Mine ));
 	
 		break;}
 		{	case Move::Idle :
-    Velocity = Vector(0.0 , 0.0, 0.0);
-//myMessage = new SpriteMSG(Velocity, id);
-myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
-    msger.sendMSG(myMessage);
+
+    Velocity = Vec2DF(0.0 , 0.0);
+    msger.sendMSG(new PhysicsMSG(Velocity,m_time.getDelta(),m_Target,m_Mine ));
 
             break;}
 	default :
@@ -178,8 +165,8 @@ myMessage = new PhysicsMSG(Velocity,m_time.getDelta(),id);
 	Move Movement;
 	Move LastMovement;
  	MSGdispatcher msger;
-    msg* myMessage;
-    Vector Velocity;
+
+    Vec2DF Velocity;
     SDL_Event* event;
 	TimerF m_time;
 

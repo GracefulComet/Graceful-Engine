@@ -33,24 +33,20 @@ int TileMap::getCurrTile() { return m_curTile; }
 int TileMap::getH() { return m_Height; }
 int TileMap::getW() { return m_Width; }
 int TileMap::getCurrCol() {
-  Frame temp;
-  temp = m_Maping[m_curTile];
-  return temp.x;
+
+  return m_Maping[m_curTile].x;
 }
 int TileMap::getCurrRow() {
-  Frame temp;
-  temp = m_Maping[m_curTile];
-  return temp.y;
+
+  return m_Maping[m_curTile].y;
 }
 int TileMap::getNCol() {
-  int temp = 0;
-  temp = m_NumCol;
-  return temp;
+
+  return m_NumCol;
 }
 int TileMap::getNRow() {
-  int temp = 0;
-  temp = m_NumRow;
-  return temp;
+
+  return m_NumRow;
 }
 void TileMap::setNumAnimFrames(int numofFrames){
     m_numframestoAnimate = numofFrames;

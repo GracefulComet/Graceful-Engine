@@ -14,7 +14,7 @@ void Game::Setup() {}
 
 void Game::GameLoop() {
 	while (isOpen == true) {
-//	TheInputHandler::Instance()->update(ev);
+
 
 		if (SDL_PollEvent(&ev) == 0) {
 			RL();
@@ -34,7 +34,7 @@ void Game::composeFrame() {
     SDL_PollEvent(&ev);
 	fact.updateBehaviour();	
 	fact.updateGFX(60.0f  );
-
+//	fact.updateCollision();
 
 }
 
@@ -73,20 +73,14 @@ Game::Game() {
 
 
 
-
-    fact.addPlayer("player.sp",&ev, MainRender);
+    fact.addPlayer("Background.sp", &ev, MainRender, Vec2DF(100.0f, 100.0f));
+    fact.addPlayer("player.sp",&ev, MainRender,Vec2DF(50.0f,50.0f));
 
 
 
 }
 
 void Game::RL() {
-//	Ptime = Ctime;
-//	Ctime = SDL_GetTicks();
-//	deltatime = Ctime - Ptime;
-//	if (deltatime > 0.15) {
-//		deltatime = 0.15;
-//	}
 	composeFrame();
 	drawFrame();
 }

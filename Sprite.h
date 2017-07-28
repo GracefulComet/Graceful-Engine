@@ -38,9 +38,10 @@ public:
   void setCurTile(int CurT);
   void Nanimate(float DurPerFrame, int NumOfFrames, bool Cycle);
   void SetPos(float x, float y);
+  Vec2DF* getPosition();
   TileMap m_tiles;
   TileMap* getTiles();
-  Vector* getVec();
+  Vec2DF* getVec();
   void HandleMSG( ); 
   MSGreciever* getListener();
   int getID();
@@ -48,14 +49,12 @@ public:
 
 protected:
   bool reverse;
-  Vector m_position;
-  Vector m_movespeed;
-  MSGreciever m_messenger;
+  Vec2DF m_position;
+  Vec2DF m_movespeed;
+  MSGreciever* m_messenger;
   std::string m_textureID;
   int m_animOffset;
   TimerF m_timer;
-
-
   int m_ID;
 private:
 };

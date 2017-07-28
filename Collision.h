@@ -2,6 +2,7 @@
 #include "Messages.h"
 #include <SDL2/SDL.h>
 #include <vector>
+#include <iostream>
 
 class CollisionData{
 public:
@@ -9,7 +10,7 @@ public:
     CollisionData();
     ~CollisionData();
     CollisionData(int id, SDL_Rect Rectangle);
-    SDL_Rect getRect();
+    SDL_Rect* getRect();
     int getID();
 
 
@@ -25,17 +26,18 @@ public:
 
     CollisionSystem();
     ~CollisionSystem();
-     CollisionSystem(MSGreciever firstregister);
-     void addObjToTrack();
-     void addListener();
-     void detectCollides();
+     CollisionSystem(MSGreciever* firstregister, CollisionData firstobj , int idnumber);
+     void updatePositions();
+     void addObjToTrack( CollisionData addee);
+     void addListener(MSGreciever* listener );
+     void detectCollides(SDL_Rect* box1 , SDL_Rect* box2);
      void detectAll();
+	 ID getID();
 
 
 private:
-
+	ID m_MyID;
     std::vector <CollisionData > m_data;
-    std::vector <MSGreciever* > m_listeners;
     MSGdispatcher m_sender;
 
 };
