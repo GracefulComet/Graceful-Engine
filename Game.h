@@ -12,39 +12,38 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#include "Inputh.h"
 #include "gofactory.h"
 
 enum class GameState { MENU, PLAY, PAUSE, EXIT };
 
-class Game {
+class Game
+{
 public:
-  void Setup();
-  void GameLoop();
-  void composeFrame();
-  void drawFrame();
+	Game();
+	~Game();
 
-  void RL();
+	void Setup();
+	void GameLoop();
+	void composeFrame();
+	void drawFrame();
 
-  void update();
+	void RL();
 
-  Game();
-  ~Game();
+	void update();
 
 private:
-  SDL_Window *m_win;
-  SDL_Renderer *MainRender;
-  bool isOpen;
-  int m_WHeight;
-  int m_WWidth;
-  SDL_Event ev;
-  SDL_Texture *backBuffer;
-  float Ctime;
-  float Ptime;
-  float deltatime;
-  int m_currentFrame;
-  GOfactory fact;
-  GameState m_GameState;
-  int m_lastframe;
-  Sprite Test;
+	SDL_Window *m_win;
+	SDL_Renderer *MainRender;
+	bool isOpen = true;
+	int m_WHeight;
+	int m_WWidth;
+	SDL_Event ev;
+	SDL_Texture *backBuffer;
+	float Ctime = 0.f;
+	float Ptime = 0.f;
+	float deltatime = 0.f;
+	int m_currentFrame;
+	GOfactory fact;
+	GameState m_GameState = GameState::PLAY;
+	int m_lastframe = 0;
 };

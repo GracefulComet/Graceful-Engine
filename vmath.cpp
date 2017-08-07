@@ -9,154 +9,153 @@
 //
 #include "vmath.h"
 
-// Constructor
-Vec2DF::Vec2DF(void) {
-  x = 0;
-  y = 0;
-}
-// Constructor
-Vec2DF::Vec2DF(float xi, float yi) {
-  x = xi;
-  y = yi;
+Vec2DF::Vec2DF()
+	:
+	x( 0 ), y( 0 )
+{
 }
 
-void Vec2DF::Normalize(void) {
-  float const tol = 0.0001f;
-  float m = (float)sqrt(x * x + y * y );
-  if (m <= tol)
-    m = 1;
-  x /= m;
-  y /= m;
-
-  if (fabs(x) < tol)
-    x = 0.0f;
-  if (fabs(y) < tol)
-    y = 0.0f;
+Vec2DF::Vec2DF( float xi, float yi )
+	:
+	x( xi ), y( yi )
+{
 }
 
-float Vec2DF::Magnitude(void) { return (float)sqrt(x * x + y * y); }
-
-void Vec2DF::Reverse(void) {
-  x = -x;
-  y = -y;
+float Vec2DF::SqMagnitude() const
+{
+	return ( x * x ) + ( y * y );
 }
 
-Vec2DF &Vec2DF::operator+=(Vec2DF u) {
+Vec2DF Vec2DF::Normalize( void )const
+{
+	const float tol = 0.0001f;
+	float m = Magnitude();
+	if( m <= tol )
+		m = 1;
 
-  x += u.x;
-  y += u.y;
-  return *this;
+	auto result = *this / m;
+
+	if( fabs( x ) < tol )
+		result.x = 0.0f;
+	if( fabs( y ) < tol )
+		result.y = 0.0f;
+
+	return result;
 }
 
-Vec2DF &Vec2DF::operator-=(Vec2DF u) {
-  x -= u.x;
-  y -= u.y;
-  return *this;
+float Vec2DF::Magnitude()const
+{
+	return sqrtf( SqMagnitude() );
 }
 
-Vec2DF &Vec2DF::operator*=(float s) {
-  x *= s;
-  y *= s;
-  return *this;
+Vec2DF &Vec2DF::operator+=( Vec2DF u )
+{
+	x += u.x;
+	y += u.y;
+	return *this;
 }
 
-Vec2DF &Vec2DF::operator/=(float s) {
-  x /= s;
-  y /= s;
-  return *this;
+Vec2DF &Vec2DF::operator-=( Vec2DF u )
+{
+	x -= u.x;
+	y -= u.y;
+	return *this;
 }
 
-Vec2DF operator+(Vec2DF u, Vec2DF v) {
-  return Vec2DF(u.x + v.x, u.y + v.y);
+Vec2DF &Vec2DF::operator*=( float s )
+{
+	x *= s;
+	y *= s;
+	return *this;
 }
 
-Vec2DF operator-(Vec2DF u, Vec2DF v) {
-
-  return Vec2DF(u.x - v.x, u.y - v.y );
+Vec2DF &Vec2DF::operator/=( float s )
+{
+	x /= s;
+	y /= s;
+	return *this;
 }
 
-
-
-float operator*(Vec2DF u, Vec2DF v) {
-  return (u.x * v.x + u.y * v.y );
+float Vec2DF::Approach( float goal, float current, float dt )
+{
+	const float difference = goal - current;
+	return difference > dt ?
+		current + dt : difference < -dt ?
+		current - dt : goal;
 }
 
-Vec2DF operator*(float s, Vec2DF u) {
-  return Vec2DF(u.x * s, u.y * s);
+bool Vec2DF::operator>=( Vec2DF rhs )
+{
+	return ( x >= rhs.x ) && ( y >= rhs.y );
 }
 
-Vec2DF operator*(Vec2DF u, float s) {
-  return Vec2DF(u.x * s, u.y * s);
+bool Vec2DF::operator<=( Vec2DF rhs )
+{
+	return ( x <= rhs.x ) && ( y <= rhs.y );
 }
 
-Vec2DF operator/(Vec2DF u, float s) {
-  return Vec2DF(u.x / s, u.y / s);
+Rect::Rect()
+	:
+	position( 0.f, 0.f ),
+	size( 1.f, 1.f )
+{}
+
+Rect::Rect( Vec2DF pos, Vec2DF vsize )
+	:
+	position( pos ),
+	size( vsize )
+{}
+
+Vec2DF Rect::getCenterPos()
+{
+	return ( position + ( size * .5f ) );
 }
 
-
-
-float Vec2DF::Approach(float goal, float current, float dt) {
-  float difference;
-  difference = goal - current;
-
-  if (difference > dt) {
-    return current + dt;
-  }
-
-  if (difference < -dt) {
-    return current - dt;
-  }
-
-  return goal;
+bool Rect::RectColisionCheck( Rect compare )
+{
+	return 
+		( position >= compare.position ) &&
+		( position + size ) <= ( compare.position + compare.size );
 }
-bool Vec2DF::operator>=(Vec2DF rhs){
-    bool check1 = false;
-    bool check2 = false;
-    if(x >= rhs.x){check1 = true;}
-    if(y >= rhs.y){check2 = true;}
-if (check1 == true){
-    if(check2 ==true ){
 
-    return true;
-}else{return false;}
-}}
-
-
-bool Vec2DF::operator<=(Vec2DF rhs){
-    bool check1 = false;
-    bool check2 = false;
-    if(x <= rhs.x){check1 = true;}
-    if(y <= rhs.y){check2 = true;}
-if (check1 == true){
-    if(check2 ==true ){
-
-    return true;
-}else{return false;}
-}}
-
-Rect::Rect(){
-    position.x =0;
-    position.y =0;
-    size.x =1;
-    size.y =1;
+Vec2DF operator+( const Vec2DF & U, const Vec2DF & V )
+{
+	return Vec2DF( U ) += V;
 }
-Rect::Rect(Vec2DF pos, Vec2DF vsize){
-    position = pos;
-    size = vsize;
-}
-Vec2DF Rect::getCenterPos(){
-    return (position+= (size /= 2));
-}
-bool Rect::RectColisionCheck(Rect compare){
-   if((this->position >= compare.position) && (this->position+= this->size)<=(compare.position += compare.size)){
-       return true;
-   }
 
-}// not yet tested.
+Vec2DF operator-( const Vec2DF & U, const Vec2DF & V )
+{
+	return Vec2DF( U ) -= V;
+}
 
-float distance(Vec2DF first, Vec2DF second){
-   float difx = first.x - second.x;
-   float dify = first.y - second.y;
-   float dist = (float)sqrt((difx * difx)+(dify * dify));
-   return dist;
-}// not yet tested
+Vec2DF operator-( const Vec2DF & V )
+{
+	return Vec2DF( -V.x, -V.y );
+}
+
+float operator*( const Vec2DF & U, const Vec2DF & V )
+{
+	return ( U.x * V.x + U.y * V.y );
+}
+
+Vec2DF operator*( float s, Vec2DF u )
+{
+	return u * s;
+}
+
+Vec2DF operator*( const Vec2DF & V, const float & S )
+{
+	return Vec2DF( V ) *= S;
+}
+
+Vec2DF operator/( const Vec2DF & V, const float & S )
+{
+	return Vec2DF( V ) /= S;
+}
+
+float distance( Vec2DF first, Vec2DF second )
+{
+	const auto diff = first - second;
+	const auto dist = diff * diff;
+	return dist;
+}
