@@ -10,7 +10,7 @@ SET ( CMAKE_EXPORT_COMPILE_COMMANDS=ON)
 #SET ( LIBRARY_OUTPUT_PATH "./libs"  )
 
 if (UNIX)
-set (CMAKE_CXX_FLAGS "-I/usr/local/include/SDL2 -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -g -std=c++14")
+	set (CMAKE_CXX_FLAGS "-I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14")
 endif (UNIX)
 
 if (WIN32)

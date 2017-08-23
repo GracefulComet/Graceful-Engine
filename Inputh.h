@@ -34,8 +34,6 @@ public:
 
   void GrabInput(); //
 
-
-
   void Listen(SDL_Event event); //  outputs the last button/axis pressed/moved
 
   void update(SDL_Event event);
@@ -44,7 +42,6 @@ public:
 
 private:
   static InputHandler *s_Instance;
-
 
   std::vector<SDL_Joystick *> m_joysticks;
   bool m_bJoysticksInitialised;

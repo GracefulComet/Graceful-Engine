@@ -73,7 +73,7 @@ void InputHandler::Listen(SDL_Event event) {
     }
 
     if (event.type == SDL_JOYBUTTONDOWN) {
-  
+
       if (event.jbutton.which >= 0) {
         std::cout << "Button " << (int)event.jbutton.button << " was pressed"
                   << std::endl;

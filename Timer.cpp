@@ -33,6 +33,4 @@ void TimerF::reset() {
   m_deltaTime = 0;
   m_ready = false;
 }
-float TimerF::getDelta(){
-return m_deltaTime;
-}
+float TimerF::getDelta() { return m_deltaTime; }

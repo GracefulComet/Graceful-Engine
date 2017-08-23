@@ -10,56 +10,61 @@
 #pragma once
 #include <cmath>
 
-class Vec2DF
-{
+class Vec2DF {
 public:
-	Vec2DF( void );
-	Vec2DF( float xi, float yi );
-	
-	Vec2DF &operator+=( Vec2DF u );
-	Vec2DF &operator-=( Vec2DF u );
-	Vec2DF &operator*=( float s );
-	Vec2DF &operator/=( float s );
-	
-	float SqMagnitude()const;
-	float Magnitude()const;
-	Vec2DF Normalize()const;
+  Vec2DF(void);
+  Vec2DF(float xi, float yi);
 
-	bool operator>=( Vec2DF rhs );
-	bool operator<=( Vec2DF rhs );
-	float Approach( float goal, float current, float dt );
+  Vec2DF &operator+=(Vec2DF u);
+  Vec2DF &operator-=(Vec2DF u);
+  Vec2DF &operator*=(float s);
+  Vec2DF &operator/=(float s);
+
+  float SqMagnitude() const;
+  float Magnitude() const;
+  Vec2DF Normalize() const;
+
+  bool operator>=(Vec2DF rhs);
+  bool operator<=(Vec2DF rhs);
+  float Approach(float goal, float current, float dt);
 
 public:
-	float x, y;
+  float x, y;
 };
 
-Vec2DF operator+( const Vec2DF &U, const Vec2DF &V );
-Vec2DF operator-( const Vec2DF &U, const Vec2DF &V );
-Vec2DF operator-( const Vec2DF &V );
+Vec2DF operator+(const Vec2DF &U, const Vec2DF &V);
+Vec2DF operator-(const Vec2DF &U, const Vec2DF &V);
+Vec2DF operator-(const Vec2DF &V);
 
-float operator*( const Vec2DF &U, const Vec2DF &V );
-Vec2DF operator*( float s, Vec2DF u );
-Vec2DF operator*( const Vec2DF &V, const float &S );
-Vec2DF operator/( const Vec2DF &V, const float &S );
+float operator*(const Vec2DF &U, const Vec2DF &V);
+Vec2DF operator*(float s, Vec2DF u);
+Vec2DF operator*(const Vec2DF &V, const float &S);
+Vec2DF operator/(const Vec2DF &V, const float &S);
 
-float distance( Vec2DF first, Vec2DF second );
+float distance(Vec2DF first, Vec2DF second);
 
-class Rect
-{
+class Line {
 public:
-	Vec2DF position;
-	Vec2DF size;
-	Rect();
-	Rect( Vec2DF pos, Vec2DF vsize );
-
-public:
-	Vec2DF getCenterPos();
-	bool RectColisionCheck( Rect compare );
+  Line();
+  Line(Vec2DF PointA, Vec2DF Pointb);
+  ~Line();
+  bool HasIntercect(Line ComparedTo);
+  Vec2DF m_pointA;
+  Vec2DF m_pointB;
 };
 
-class circle
-{
+class Rect {
 public:
-	Vec2DF position;
-	float radius;
+  Vec2DF position;
+  Vec2DF size;
+  Rect();
+  Rect(Vec2DF pos, Vec2DF vsize);
+  Vec2DF getCenterPos();
+  bool RectColisionCheck(Rect compare);
+};
+
+class circle {
+public:
+  Vec2DF position;
+  float radius;
 };

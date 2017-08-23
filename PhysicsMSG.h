@@ -3,16 +3,16 @@
 #include "Messages.h"
 #include "vmath.h"
 
-class PhysicsMSG : public msg
-{
+class PhysicsMSG : public msg {
 public:
+  PhysicsMSG() = default;
+  //  ~PhysicsMSG()=default;
+  PhysicsMSG(float x, float y, double dt, ID target, ID Sender);
 
-	PhysicsMSG() = default;
-	PhysicsMSG( Vec2DF velocity, float dt, ID target, ID Sender );
-	
-	void update( void* Variables )override;
+  void update(void *Variables) override;
 
 public:
-	Vec2DF m_VecPayload;
-	float m_DeltaTime;
+  float m_x;
+  float m_y;
+  double m_rotation;
 };

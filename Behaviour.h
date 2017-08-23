@@ -4,21 +4,19 @@
 #include "MSGdispatcher.h"
 #include "Timer.h"
 
-class Behaviour
-{
+class Behaviour {
 
 public:
-	Behaviour() = default;
-	virtual	~Behaviour() = default;
+  Behaviour() = default;
+  virtual ~Behaviour() = default;
 
-	virtual void update() = 0;
+  virtual void update() = 0;
 
-	MSGreciever* getlistener();
+  MSGreciever *getlistener();
 
 public:
-	ID m_Mine;
-	ID m_Target;
-	MSGdispatcher m_mailman;
-	MSGreciever m_mailbox;
+  ID m_Mine;
+  ID m_Target;
+  MSGdispatcher m_mailman;
+  MSGreciever m_mailbox;
 };
-
