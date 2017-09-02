@@ -23,6 +23,6 @@ void MSGdispatcher::sendMSG(std::unique_ptr<msg> &&Message) {
       if (Message->getTargetID().matchMyID(listener->SentTo)) {
         listener->getMSGS(std::move(Message));
       }
-    } // else{}
+    }
   }
 }

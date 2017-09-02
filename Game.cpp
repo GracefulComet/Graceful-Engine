@@ -24,14 +24,39 @@ Game::Game()
   //"Ring",MainRender);
 
   fact.addTerrain("Background.sp", MainRender, Vec2DF(0.0f, 500.0f));
-  // fact.addTerrain("Background.sp", MainRender, Vec2DF(32.0f, 500.0f));
-  // fact.addTerrain("Background.sp", MainRender, Vec2DF(64.0f, 500.0f));
-  // fact.addTerrain("Background.sp", MainRender, Vec2DF(96.0f, 500.0f));
-  //   fact.addTerrain("Background.sp", MainRender, Vec2DF(128.0f, 500.0f));
-  // fact.addTerrain("Background.sp", MainRender, Vec2DF(160.0f, 500.0f));
-  // fact.addTerrain("Background.sp", MainRender, Vec2DF(192.0f, 500.0f));
-  // fact.addTerrain("Background.sp", MainRender, Vec2DF(224.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(32.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(64.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(96.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(128.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(160.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(192.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(224.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(256.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(288.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(320.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(352.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(384.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(416.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(448.0f, 500.0f));
+
+  fact.addTerrain("Background.sp", MainRender, Vec2DF(480.0f, 500.0f));
+
   fact.addPlayer("player.sp", &ev, MainRender, Vec2DF(0.0f, 50.0f));
+
 }
 
 Game::~Game() {

@@ -1,97 +1,102 @@
 [
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/gofactory.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/gofactory.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/gofactory.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/AnimationMSG.cpp.o -c /home/randy/Downloads/Graceful-Engine/AnimationMSG.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/AnimationMSG.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/TerrainCtrl.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/TerrainCtrl.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/TerrainCtrl.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/Behaviour.cpp.o -c /home/randy/Downloads/Graceful-Engine/Behaviour.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/Behaviour.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/Inputh.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/Inputh.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/Inputh.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/Game.cpp.o -c /home/randy/Downloads/Graceful-Engine/Game.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/Game.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/AnimationMSG.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/AnimationMSG.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/AnimationMSG.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/ID.cpp.o -c /home/randy/Downloads/Graceful-Engine/ID.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/ID.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/Game.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/Game.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/Game.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/Inputh.cpp.o -c /home/randy/Downloads/Graceful-Engine/Inputh.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/Inputh.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/PlayerCtrl.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/PlayerCtrl.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/PlayerCtrl.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/MSGdispatcher.cpp.o -c /home/randy/Downloads/Graceful-Engine/MSGdispatcher.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/MSGdispatcher.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/Timer.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/Timer.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/Timer.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/MSGreciever.cpp.o -c /home/randy/Downloads/Graceful-Engine/MSGreciever.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/MSGreciever.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/Messages.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/Messages.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/Messages.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/Messages.cpp.o -c /home/randy/Downloads/Graceful-Engine/Messages.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/Messages.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/TexL.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/TexL.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/TexL.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/PhysicsMSG.cpp.o -c /home/randy/Downloads/Graceful-Engine/PhysicsMSG.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/PhysicsMSG.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/MSGdispatcher.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/MSGdispatcher.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/MSGdispatcher.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/PhysicsSystem.cpp.o -c /home/randy/Downloads/Graceful-Engine/PhysicsSystem.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/PhysicsSystem.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/Sprite.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/Sprite.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/Sprite.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/PlayerCtrl.cpp.o -c /home/randy/Downloads/Graceful-Engine/PlayerCtrl.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/PlayerCtrl.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/MSGreciever.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/MSGreciever.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/MSGreciever.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/PlayerData.cpp.o -c /home/randy/Downloads/Graceful-Engine/PlayerData.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/PlayerData.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/ID.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/ID.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/ID.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/Sprite.cpp.o -c /home/randy/Downloads/Graceful-Engine/Sprite.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/Sprite.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/PhysicsMSG.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/PhysicsMSG.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/PhysicsMSG.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/TerrainCtrl.cpp.o -c /home/randy/Downloads/Graceful-Engine/TerrainCtrl.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/TerrainCtrl.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/PhysicsSystem.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/PhysicsSystem.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/PhysicsSystem.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/TexL.cpp.o -c /home/randy/Downloads/Graceful-Engine/TexL.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/TexL.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/main.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/main.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/main.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/TileMap.cpp.o -c /home/randy/Downloads/Graceful-Engine/TileMap.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/TileMap.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/TileMap.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/TileMap.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/TileMap.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/Timer.cpp.o -c /home/randy/Downloads/Graceful-Engine/Timer.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/Timer.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/vmath.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/vmath.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/vmath.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/gofactory.cpp.o -c /home/randy/Downloads/Graceful-Engine/gofactory.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/gofactory.cpp"
 },
 {
-  "directory": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine",
-  "command": "/usr/bin/c++    -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14 -I/usr/local/include -I/home/gracefulcomet/Documents/Debugging/Graceful-Engine/./include    -o CMakeFiles/GEtidy.dir/Behaviour.cpp.o -c /home/gracefulcomet/Documents/Debugging/Graceful-Engine/Behaviour.cpp",
-  "file": "/home/gracefulcomet/Documents/Debugging/Graceful-Engine/Behaviour.cpp"
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/main.cpp.o -c /home/randy/Downloads/Graceful-Engine/main.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/main.cpp"
+},
+{
+  "directory": "/home/randy/Downloads/Graceful-Engine",
+  "command": "/usr/bin/c++   -I/usr/local/include -I/home/randy/Downloads/Graceful-Engine/./include  -I/usr/local/include/SDL2 -I/user/local/Box2D -D_REENTRANT -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lSDL2_image -lliquidfun -g -std=c++14   -o CMakeFiles/GEtidy.dir/vmath.cpp.o -c /home/randy/Downloads/Graceful-Engine/vmath.cpp",
+  "file": "/home/randy/Downloads/Graceful-Engine/vmath.cpp"
 }
 ]

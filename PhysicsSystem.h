@@ -12,22 +12,25 @@ public:
   ~PhysicsSystem();
 
   void addTestObj(Vec2DF Pos, ID identity);
-  void addTestGround(Vec2DF Pos, ID identity);
+  void addTestGround(Vec2DF Pos, ID  identity);
   void addLinkToSprite(MSGreciever *targetToSendMSGS, ID targetIDentifier);
   void addLinkToBehaviour(MSGreciever *targetToSendMSGS, ID targetIDentifier);
+  ID getID();
+  MSGreciever* getListener();
   void sendUpdatedPhysdata();
   void sendCollisionData();
-  // needs to create physics world objs
-  // needs to send uppdated obj positions(converted from meters to pixels
-  // do we need to handle rotations? if so how.
+  void getBehaviourMSGS();
+  void RespondToEntitys();
+  bool handleMSGS( void* Variable );
+
   void update();
 
 private:
   MSGdispatcher m_Sprite_sender;
   MSGdispatcher m_Behaviour_sender;
-  //	std::vector <ID> SpriteIDs;
+  MSGreciever m_Behaviour_Listener;
   std::vector<ID> BehaviourIDs;
   std::vector<void *> userdata;
-  // std::vector<b2Bodies >Bodies;
+  ID m_myID;
   b2World *TheWorld;
 };

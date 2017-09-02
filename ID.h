@@ -1,6 +1,6 @@
 #pragma once
 
-enum class MSGTYPE { Uninitialized, Failed, Physics, Animation, Collision };
+enum class MSGTYPE { Uninitialized, Failed,Player, Physics, Animation, Collision };
 enum class OBJTYPE { Uninitialized, Sprite, CollisionSystem, GameOBJ };
 
 class ID {

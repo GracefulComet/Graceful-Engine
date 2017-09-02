@@ -33,7 +33,11 @@ bool TexL::load(std::string filename, std::string id, SDL_Renderer *pRender) {
   SDL_FreeSurface(pTempSurface);
 
   if (pTexture != 0) {
+
+
     m_textureMap[id] = pTexture;
+
+
     return true;
   }
 
@@ -70,7 +74,9 @@ void TexL::drawFrame(std::string id, int x, int y, int width, int height,
 
 void TexL::LoadWErrorChecking(std::string filename, std::string id,
                               SDL_Renderer *pRender) {
-  this->load(filename, id, pRender);
+ 
+
+
   if (this->load(filename, id, pRender) == true) {
     std::cout << "loaded " << filename << std::endl;
   } else {

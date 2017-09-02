@@ -2,17 +2,29 @@
 #include "AnimationMSG.h"
 #include "PhysicsMSG.h"
 
-PlayerCtrl::PlayerCtrl(MSGreciever *firstListener, SDL_Event *Evnt, int idnum)
+PlayerCtrl::PlayerCtrl(MSGreciever *firstListener, SDL_Event *Evnt, int idnum,ID physix)
     : Movement(Move::Idle), event(Evnt), test() {
   m_Mine = ID(idnum, OBJTYPE::GameOBJ);
   m_Target = ID(idnum, OBJTYPE::Sprite);
   m_mailman = MSGdispatcher(firstListener);
+  PhysMSGID = physix; 
 }
 
 PlayerCtrl *PlayerCtrl::getPtr() { return this; }
 
+void PlayerCtrl::addListener(MSGreciever* addee){
+    m_mailman.registerMSGER(addee);
+    if(PhysMSGID.matchMyID(addee->SentTo)){
+    std::cout << "Message Registrations does match" <<std::endl;
+    }else{
+
+    std::cout << PhysMSGID.m_IDNumber << " /n";
+    }
+                                                   }
+
+
+
 void PlayerCtrl::update() {
-  LastMovement = Movement;
 
   if (m_time.cooldown(60.0f) == true) {
     m_time.reset();
@@ -26,11 +38,11 @@ void PlayerCtrl::update() {
     case SDLK_RIGHT:
       Movement = Move::Right;
       break;
-    case SDLK_UP:
-      Movement = Move::Up;
+    case SDLK_SPACE:
+      Movement = Move::Jump;
       break;
     case SDLK_DOWN:
-      Movement = Move::Down;
+      Movement = Move::Crouch;
       break;
     default:
       Movement = Move::Idle;
@@ -41,7 +53,7 @@ void PlayerCtrl::update() {
       case SDLK_LEFT:
         Movement = Move::Idle;
         break;
-      case SDLK_RIGHT:
+      case SDLK_SPACE:
         Movement = Move::Idle;
         break;
       case SDLK_UP:
@@ -58,38 +70,30 @@ void PlayerCtrl::update() {
 
   switch (Movement) {
   case Move::Left:
-    Velocity += Vec2DF(-0.25f, 0.0f);
+
     m_mailman.sendMSG(std::make_unique<AnimationMSG>(15, 3, state::animated,
                                                      m_Target, m_Mine));
-    //    m_mailman.sendMSG(std::make_unique<PhysicsMSG>(Velocity,
-    //    0.0f,m_Target, m_Mine));
+    m_mailman.sendMSG(std::make_unique<PlayerMSG>( PlayerAction::WalkLeft,PhysMSGID,m_Mine ));
+
+
     break;
   case Move::Right:
-    Velocity += Vec2DF(0.25f, 0.0f);
+ 
     m_mailman.sendMSG(std::make_unique<AnimationMSG>(27, 3, state::animated,
                                                      m_Target, m_Mine));
-    //    m_mailman.sendMSG(std::make_unique<PhysicsMSG>(Velocity,0.0f
-    //    ,m_Target, m_Mine));
+   m_mailman.sendMSG(std::make_unique<PlayerMSG>( PlayerAction::WalkRight,PhysMSGID,m_Mine ));
+   
     break;
-  case Move::Up:
-    Velocity += Vec2DF(0.0f, -0.25f);
+  case Move::Jump:
     m_mailman.sendMSG(std::make_unique<AnimationMSG>(39, 3, state::animated,
-                                                     m_Target, m_Mine));
-    //    m_mailman.sendMSG(std::make_unique<PhysicsMSG>(Velocity,0.0 ,m_Target,
-    //    m_Mine));
+                                                     m_Target, m_Mine));  
     break;
-  case Move::Down:
-    Velocity += Vec2DF(0.0f, 0.25f);
+  case Move::Crouch:
     m_mailman.sendMSG(std::make_unique<AnimationMSG>(3, 3, state::animated,
                                                      m_Target, m_Mine));
-    //    m_mailman.sendMSG(std::make_unique<PhysicsMSG>(Velocity,0.0,m_Target,
-    //    m_Mine));
     break;
   case Move::Idle:
-    Velocity += Vec2DF(0.0, 0.0);
-    // test.m_RotationAngle += 5.0f;
-    // m_mailman.sendMSG(std::make_unique<PhysicsMSG>(0.0f,
-    // 0.0f,test.m_RotationAngle,m_Target, m_Mine));
+
     break;
   default:
     Movement = Move::Idle;

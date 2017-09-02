@@ -11,7 +11,7 @@ public:
   virtual ~Behaviour() = default;
 
   virtual void update() = 0;
-
+  virtual void addListener(MSGreciever* addee);
   MSGreciever *getlistener();
 
 public:
