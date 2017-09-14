@@ -5,6 +5,9 @@
 #include <vector>
 #include "vmath.h"
 #include "PhysicsMSG.h"
+#include "pCollisionMSG.h"
+
+class MContactListener;
 
 class PhysicsSystem {
 public:
@@ -25,7 +28,7 @@ public:
 
   void update();
 
-private:
+//private:
   MSGdispatcher m_Sprite_sender;
   MSGdispatcher m_Behaviour_sender;
   MSGreciever m_Behaviour_Listener;
@@ -33,4 +36,16 @@ private:
   std::vector<void *> userdata;
   ID m_myID;
   b2World *TheWorld;
+  MContactListener* m_WListener;
+};
+
+class MContactListener : public b2ContactListener{
+	public:
+   MContactListener(PhysicsSystem* systemptr);
+   ~MContactListener();
+   void BeginContact(b2Contact* contact)override;  
+   void EndContact(b2Contact* contact)override;
+
+
+   PhysicsSystem* p_sys;
 };

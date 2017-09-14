@@ -64,4 +64,8 @@ int TileMap::getNumAnimFrames() { return m_numframestoAnimate; }
 
 void TileMap::setState(state DesiredState) { State = DesiredState; }
 
+void TileMap::setFlip(bool isFlipped){
+m_IsFlipped = isFlipped;
+}
+bool TileMap::getFlip(){return m_IsFlipped;}
 state TileMap::getState() { return State; }

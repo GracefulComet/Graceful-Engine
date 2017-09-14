@@ -60,7 +60,8 @@ void GOfactory::addPlayer(std::string filetoSprite, SDL_Event *evt,
       addBehaviour(std::make_unique<PlayerCtrl>(Gfx.back().getListener(), evt,
                                                 m_IDKeys,PS.getID()));
       PS.addLinkToSprite(Gfx.back().getListener(), Gfx.back().getID());
-      PS.addTestObj(pos, Gfx.back().getID());
+      PS.addLinkToBehaviour(m_Entities.back()->getlistener(),m_Entities.back()->m_Mine);
+      PS.addTestObj(pos, m_Entities.back()->m_Mine);
       m_Entities.back()->addListener(PS.getListener());
     }
   }
@@ -74,5 +75,5 @@ void GOfactory::addTerrain(std::string filetoSprite, SDL_Renderer *render,
                                              TerrType::Floor));
   PS.addLinkToBehaviour(m_Entities.back()->getlistener(),m_Entities.back()->m_Mine);
   PS.addLinkToSprite(Gfx.back().getListener(), Gfx.back().getID());
-  PS.addTestGround(pos, Gfx.back().getID());
+  PS.addTestGround(pos, m_Entities.back()->m_Mine);
 }

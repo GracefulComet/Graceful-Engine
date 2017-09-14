@@ -6,14 +6,18 @@ PhysicsSystem::PhysicsSystem() {
   TheWorld = new b2World(Gravity);
   m_myID = ID(0,OBJTYPE::CollisionSystem);
   m_Behaviour_Listener = MSGreciever(m_myID);
+  m_WListener = new MContactListener(this);
+  TheWorld->SetContactListener(m_WListener); 
 }
 
 PhysicsSystem::~PhysicsSystem() { delete TheWorld;
-while(userdata.empty() == !true){ 
-userdata.pop_back();
 
+	while(userdata.empty() == !true){ 
+userdata.pop_back();
   }
+delete m_WListener;
 }
+
 
 void PhysicsSystem::addTestObj(Vec2DF Pos, ID identity) {
 
@@ -24,11 +28,12 @@ void PhysicsSystem::addTestObj(Vec2DF Pos, ID identity) {
      bodydef.userData = userdata.back();
      b2Body *body = TheWorld->CreateBody(&bodydef);
      b2PolygonShape dynamicBox;
-     dynamicBox.SetAsBox(15.0f, 15.0f);
+     dynamicBox.SetAsBox(22.5f, 22.5f);
      b2FixtureDef fixturedef;
      fixturedef.shape = &dynamicBox;
-     fixturedef.density = 0.9f;
-     fixturedef.friction = 0.3f;
+     fixturedef.density = 5.5f;
+     fixturedef.friction = 1.5f;
+     body->SetFixedRotation(true);
      body->CreateFixture(&fixturedef);
 
 
@@ -105,7 +110,7 @@ void PhysicsSystem::sendUpdatedPhysdata() {
     ID* target = reinterpret_cast<ID* >(b->GetUserData());
 
     m_Sprite_sender.sendMSG(std::make_unique<PhysicsMSG>(
-        b->GetPosition().x, b->GetPosition().y, b->GetAngle(), target[0],
+        b->GetPosition().x, b->GetPosition().y, b->GetAngle(), ID(target->m_IDNumber,OBJTYPE::Sprite),
         ID(0, OBJTYPE::CollisionSystem)));
     b = b->GetNext();
   }
@@ -140,5 +145,28 @@ switch(m_Behaviour_Listener.peakatMSGS()){
 	return true;
 	break;
 }
+}
+
+MContactListener::MContactListener(PhysicsSystem* systemptr){
+p_sys = systemptr;
+}
+MContactListener::~MContactListener(){}
+void MContactListener::BeginContact(b2Contact *contact){
+
+	ID* bodyUserDataA = reinterpret_cast<ID*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	ID* bodyUserDataB = reinterpret_cast<ID*>(contact->GetFixtureB()->GetBody()->GetUserData());
+      if(   bodyUserDataA->m_GOdata == GOTYPE::Terrain && bodyUserDataB->m_GOdata == GOTYPE::Player  ){
+	    p_sys->m_Behaviour_sender.sendMSG(std::make_unique<pCollisionMSG>(CollData::Grounded,*bodyUserDataB,p_sys->m_myID));
+      }
+}
+
+
+void MContactListener::EndContact(b2Contact *contact){
+	ID* bodyUserDataA = reinterpret_cast<ID*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	ID* bodyUserDataB = reinterpret_cast<ID*>(contact->GetFixtureB()->GetBody()->GetUserData());
+      if( bodyUserDataA->m_GOdata == GOTYPE::Terrain && bodyUserDataB->m_GOdata == GOTYPE::Player  ){
+       p_sys->m_Behaviour_sender.sendMSG(std::make_unique<pCollisionMSG>(CollData::AirBorne,*bodyUserDataB,p_sys->m_myID));
+      
+     } 
 }
 

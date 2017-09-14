@@ -2,6 +2,8 @@
 
 ID::ID(int idnumber, OBJTYPE type) : m_IDNumber(idnumber), m_IDType(type) {}
 
+ID::ID(int idnumber, OBJTYPE type, GOTYPE gameObjType) : m_IDNumber(idnumber), m_IDType(type),m_GOdata(gameObjType) {}
+
 bool ID::ptrIDMatch(ID *target) {
   return this->m_IDNumber == target->m_IDNumber &&
          this->m_IDType == target->m_IDType;

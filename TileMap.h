@@ -16,6 +16,8 @@ public:
   void setCurTile(int cFrame);
   void setNumAnimFrames(int numofFrames);
   void setState(state DesiredState);
+  void setFlip (bool isFlipped );
+  bool getFlip();
   state getState();
   int getNumAnimFrames();
   int getH();
@@ -35,6 +37,7 @@ protected:
   int m_Height; // hight of an individual tile
   int m_Width;  // width of an individual tile
   int m_curTile;
+  bool m_IsFlipped;
   state State;
   std::map<int, Frame> m_Maping;
 };

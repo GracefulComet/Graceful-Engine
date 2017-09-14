@@ -55,7 +55,7 @@ Game::Game()
 
   fact.addTerrain("Background.sp", MainRender, Vec2DF(480.0f, 500.0f));
 
-  fact.addPlayer("player.sp", &ev, MainRender, Vec2DF(0.0f, 50.0f));
+  fact.addPlayer("s.sp", &ev, MainRender, Vec2DF(0.0f, 50.0f));
 
 }
 

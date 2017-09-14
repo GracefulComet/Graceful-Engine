@@ -104,7 +104,7 @@ void Sprite::draw(SDL_Renderer *pRenderer) {
       m_textureID, m_locationData.m_Position.x, m_locationData.m_Position.y,
       this->m_tiles.getW(), this->m_tiles.getH(), this->m_tiles.getCurrRow(),
       (this->m_tiles.getCurrCol() + m_animOffset),
-      m_locationData.m_RotationAngle, pRenderer, SDL_FLIP_NONE);
+      m_locationData.m_RotationAngle, pRenderer, (SDL_RendererFlip)this->m_tiles.getFlip());
 }
 
 void Sprite::animate(float DurPerFrame, int NumOfFrames, bool Cycle) {

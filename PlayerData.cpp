@@ -16,15 +16,22 @@ switch( m_action){
 	break;
 
 	case PlayerAction::WalkLeft :
-    mybod.ApplyForce( b2Vec2(-50000,-100), mybod.GetWorldCenter(), false);
+    mybod.ApplyLinearImpulse( b2Vec2(-500,0), mybod.GetWorldCenter(), true);
+   mybod.ApplyForce( b2Vec2(-500000,0), mybod.GetWorldCenter(), true); 
 
 	break;
 
 	case PlayerAction::WalkRight:
-    mybod.ApplyLinearImpulse( b2Vec2(5000,-100), mybod.GetWorldCenter(), false);
+    mybod.ApplyLinearImpulse( b2Vec2(500 ,0), mybod.GetWorldCenter(), true);
+    mybod.ApplyForce( b2Vec2(500000, 0), mybod.GetWorldCenter(), true);
 	break;
+
+
 	
 	case PlayerAction::Jump:
+  mybod.ApplyLinearImpulse( b2Vec2(0,-50000), mybod.GetWorldCenter(), true);
+  mybod.ApplyLinearImpulse( b2Vec2(0,-50000), mybod.GetWorldCenter(), true);
+  mybod.ApplyLinearImpulse( b2Vec2(0,-50000), mybod.GetWorldCenter(), true);
     break;
 
 	case PlayerAction::Crouch:
