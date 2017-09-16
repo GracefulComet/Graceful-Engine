@@ -79,30 +79,7 @@ void PlayerCtrl::update() {
 
 
 
-  switch(Action){
-case p_Action::no_action :
-break;  
 
-case p_Action::Jump :
- if(LastAction ==  Action){
-    SameAction++; 
-    }else{LastAction = Action;
-    SameAction = 0;
-    }
-if(m_collideR.CanJump){SameAction = 0;}
-    if(SameAction < 15){
-    m_mailman.sendMSG(std::make_unique<AnimationMSG>(39, 5, FaceingLeft,state::animated,
-                                                     m_Target, m_Mine));  
- m_mailman.sendMSG(std::make_unique<PlayerMSG>( PlayerAction::Jump,PhysMSGID,m_Mine ));
-    }else{ m_mailman.sendMSG(std::make_unique<AnimationMSG>(39, 5, FaceingLeft,state::animated,
-                                                     m_Target, m_Mine));  
-    }
-break;
-
-default :
-break;  
-
-}
 
 
 
@@ -114,6 +91,7 @@ break;
     }else{LastMovement = Movement;
     SameMovement = 0;
     }
+    if(m_collideR.Grounded == true){ 
     FaceingLeft = true;
 
     if(SameMovement < 150){
@@ -127,7 +105,7 @@ break;
    m_mailman.sendMSG(std::make_unique<PlayerMSG>( PlayerAction::WalkLeft,PhysMSGID,m_Mine ));
     
     }
-
+  }
     break;
   case Move::Right:
    FaceingLeft = false;  
@@ -137,7 +115,7 @@ break;
     }else{LastMovement = Movement;
     SameMovement = 0;
     }
-
+if(m_collideR.Grounded == true){ 
     if(SameMovement < 150){
    m_mailman.sendMSG(std::make_unique<AnimationMSG>(27, 8, FaceingLeft,state::animated,
                                                      m_Target, m_Mine));
@@ -147,15 +125,9 @@ break;
     m_mailman.sendMSG(std::make_unique<AnimationMSG>(35, 4, FaceingLeft,state::animated,
                                                      m_Target, m_Mine));
    m_mailman.sendMSG(std::make_unique<PlayerMSG>( PlayerAction::WalkRight,PhysMSGID,m_Mine ));
-    
+    } 
     }
     break;
-//  case Move::Jump:
-   
-   
-
- 
-// break;
   case Move::Crouch:
     m_mailman.sendMSG(std::make_unique<AnimationMSG>(0, 0, FaceingLeft,state::animated,
                                                       m_Target, m_Mine));
@@ -195,4 +167,30 @@ break;
   default:
     Movement = Move::Idle;
   }
+
+  switch(Action){
+case p_Action::no_action :
+break;  
+
+case p_Action::Jump :
+ if(LastAction ==  Action){
+    SameAction++; 
+    }else{LastAction = Action;
+    SameAction = 0;
+    }
+if(m_collideR.CanJump){SameAction = 0;}
+    if(SameAction < 15){
+    m_mailman.sendMSG(std::make_unique<AnimationMSG>(39, 5, FaceingLeft,state::animated,
+                                                     m_Target, m_Mine));  
+ m_mailman.sendMSG(std::make_unique<PlayerMSG>( PlayerAction::Jump,PhysMSGID,m_Mine ));
+    }else{ m_mailman.sendMSG(std::make_unique<AnimationMSG>(39, 5, FaceingLeft,state::animated,
+                                                     m_Target, m_Mine));  
+    }
+break;
+
+default :
+break;  
+
+}
+
 }

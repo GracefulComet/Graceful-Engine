@@ -74,15 +74,17 @@ while(b != NULL){
         case MSGTYPE::Failed :
             b = b->GetNext();
         break;
+        
+        
 
         case MSGTYPE::Player :
-        if(target->m_IDNumber == m_Behaviour_Listener.que.back()->m_SenderID.m_IDNumber){
+       // if(target->m_IDNumber == m_Behaviour_Listener.que.back()->m_SenderID.m_IDNumber){
         m_Behaviour_Listener.handleMSG(b);
-        b = b->GetNext();}
-        else{b = b->GetNext();
+        b = b->GetNext();
+      //}else{b = b->GetNext();
 
-            std::cout << target->m_IDNumber << " vs " << m_Behaviour_Listener.que.back()->m_TargetID.m_IDNumber << std::endl;
-        }
+      //      std::cout << target->m_IDNumber << " vs " << m_Behaviour_Listener.que.back()->m_TargetID.m_IDNumber << std::endl;
+      //  }
 
 
 
@@ -121,8 +123,9 @@ ID PhysicsSystem::getID(){return m_myID;}
 void PhysicsSystem::update() {
 
   TheWorld->Step(1.0f / 60.0f, 6, 2);
-  this->RespondToEntitys();
   this->sendUpdatedPhysdata();
+  this->RespondToEntitys();
+
 }
 
 MSGreciever* PhysicsSystem::getListener(){return &m_Behaviour_Listener; }
